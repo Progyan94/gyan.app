@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Statistics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">&larr; Back to Home</a>
+        <h1>Life Statistics Dashboard</h1>
+        <p>Discover completely useless but fun statistics about your life!</p>
+        
+        <div class="input-section">
+            <label for="birthdate">Enter your birthdate:</label>
+            <input type="date" id="birthdate">
+            <button id="calculate-btn">Calculate My Stats</button>
+        </div>
+
+        <div class="stats-grid" id="stats-grid" style="display: none;">
+            <div class="stat-card">
+                <h3>Times Blinked</h3>
+                <p id="blinks" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Breaths Taken</h3>
+                <p id="breaths" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Heartbeats</h3>
+                <p id="heartbeats" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Pizzas Consumed</h3>
+                <p id="pizzas" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Hours Slept</h3>
+                <p id="sleep" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Miles Walked</h3>
+                <p id="miles" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Spawn Time</h3>
+                <p id="spawn-time" class="stat-value">-</p>
+            </div>
+            <div class="stat-card">
+                <h3>HP Restored (Meals)</h3>
+                <p id="meals" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Pay to Wins</h3>
+                <p id="pay-to-wins" class="stat-value text-value">-</p>
+            </div>
+            <div class="stat-card">
+                <h3>Love Wins</h3>
+                <p id="love-wins" class="stat-value text-value">-</p>
+            </div>
+            <div class="stat-card">
+                <h3>Side Quests Ignored</h3>
+                <p id="side-quests" class="stat-value">0</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

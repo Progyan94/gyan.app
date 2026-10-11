@@ -1,0 +1,172 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #87CEEB 0%, #1E90FF 100%);
+}
+
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    z-index: 100;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.2);
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background 0.2s;
+}
+
+.back-link:hover {
+    background: rgba(0,0,0,0.4);
+}
+
+#ocean {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.bottle {
+    position: absolute;
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+    animation: bob 3s infinite ease-in-out alternate;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+}
+
+.bottle:hover {
+    transform: scale(1.2);
+}
+
+@keyframes bob {
+    0% { transform: translateY(0px) rotate(-15deg); }
+    100% { transform: translateY(-20px) rotate(15deg); }
+}
+
+#write-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    background-color: #f1c40f;
+    color: #333;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    z-index: 100;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+#write-btn:hover {
+    background-color: #f39c12;
+    transform: translateY(-2px);
+}
+
+.modal {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    text-align: center;
+}
+
+.paper {
+    background-color: #fdf5e6;
+    background-image: linear-gradient(#e4e4e4 1px, transparent 1px);
+    background-size: 100% 30px;
+    line-height: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border: 1px solid #dcdcdc;
+    padding-top: 40px;
+}
+
+.paper h2 {
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+
+.paper p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3rem;
+    margin-bottom: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+#write-message {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: transparent;
+    resize: none;
+    line-height: 25px;
+}
+
+#write-message:focus {
+    outline: none;
+    border-color: #888;
+}
+
+#toss-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#toss-btn:hover {
+    background-color: #2ecc71;
+}

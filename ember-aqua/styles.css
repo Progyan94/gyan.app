@@ -1,0 +1,57 @@
+body {
+    background-color: #222;
+    color: #eee;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-link {
+    align-self: flex-start;
+    color: #4da6ff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.game-container {
+    text-align: center;
+}
+
+h1 {
+    margin: 0 0 10px 0;
+    color: #ffaa00;
+}
+
+.credit {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.instructions {
+    background: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-align: left;
+    line-height: 1.5;
+}
+
+canvas {
+    background-color: #111;
+    border: 4px solid #555;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    display: block;
+    margin: 0 auto;
+}

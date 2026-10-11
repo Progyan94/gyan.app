@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Floating Letter Bottle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Back</a>
+    
+    <div id="ocean"></div>
+
+    <button id="write-btn">Write a Message</button>
+
+    <!-- Read Modal -->
+    <div id="read-modal" class="modal hidden">
+        <div class="modal-content paper">
+            <span class="close-btn" id="close-read">&times;</span>
+            <h2>Message in a Bottle</h2>
+            <p id="read-message"></p>
+        </div>
+    </div>
+
+    <!-- Write Modal -->
+    <div id="write-modal" class="modal hidden">
+        <div class="modal-content paper">
+            <span class="close-btn" id="close-write">&times;</span>
+            <h2>Write a Message</h2>
+            <textarea id="write-message" rows="4" placeholder="Write a wholesome or funny 1-sentence message here..."></textarea>
+            <button id="toss-btn">Toss into Ocean</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

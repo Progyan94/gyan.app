@@ -1,0 +1,102 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c1e16; /* Wood dark color */
+    color: #f4ebd8;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    background-color: #3e2723;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 4px solid #5d4037;
+}
+
+.back-link {
+    color: #ffcc80;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px dashed #795548;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #d7ccc8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#case-title {
+    color: #ffb74d;
+    font-style: italic;
+}
+
+.role-display {
+    font-size: 1.2em;
+    background-color: #5d4037;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+#user-role {
+    font-weight: bold;
+    color: #bcaaa4;
+}
+
+.dialogue-box {
+    background-color: #1a100c;
+    padding: 20px;
+    border-radius: 5px;
+    min-height: 100px;
+    margin-bottom: 30px;
+    border-left: 5px solid #ffcc80;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+button {
+    background-color: #4e342e;
+    color: #fff;
+    border: 2px solid #795548;
+    padding: 15px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: #5d4037;
+    border-color: #ffcc80;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}

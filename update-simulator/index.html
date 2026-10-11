@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" class="back-link">Back to Index</a>
+    
+    <div id="shutdown-screen" class="screen">
+        <div class="dialog">
+            <h2>Updates are ready for your PC</h2>
+            <p>You need to restart your computer to apply these updates.</p>
+            <div class="buttons">
+                <button id="btn-restart">Restart Now</button>
+                <button id="btn-later">Restart Later</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="updating-screen" class="screen hidden">
+        <div class="spinner"></div>
+        <h2>Working on updates</h2>
+        <p><span id="progress">0</span>% complete</p>
+        <p>Don't turn off your PC. This will take a while.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

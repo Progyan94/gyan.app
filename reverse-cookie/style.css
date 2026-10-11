@@ -1,0 +1,55 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #222;
+    color: white;
+    margin: 0;
+    overflow: hidden;
+}
+
+.back-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 1.2rem;
+    z-index: 1000;
+}
+
+#score-container {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+#game-area {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 100px);
+}
+
+#cookie {
+    position: absolute;
+    font-size: 4rem;
+    cursor: pointer;
+    user-select: none;
+    transition: top 0.2s, left 0.2s;
+}
+
+#fake-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: red;
+    color: white;
+    padding: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 100;
+    border: 5px solid yellow;
+}
+
+.hidden {
+    display: none;
+}

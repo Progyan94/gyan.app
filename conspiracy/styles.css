@@ -1,0 +1,66 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #111;
+    color: #0f0;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-link {
+    color: #0f0;
+    text-decoration: none;
+    align-self: flex-start;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    color: #ff3333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.theory-box {
+    background-color: #222;
+    border: 2px dashed #555;
+    padding: 20px;
+    margin: 30px 0;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theory-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #555;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff3333;
+    color: #fff;
+    border-color: #ff3333;
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Endless Sand Mandala</title>
+<style>
+  body {
+    background-color: #1a1a1a;
+    color: #eeddcc;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  header {
+    position: absolute;
+    top: 20px;
+    text-align: center;
+    z-index: 10;
+  }
+  a { color: #d4a373; text-decoration: none; }
+  canvas {
+    background-color: #222;
+    cursor: crosshair;
+    margin-top: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  }
+  .controls {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 30px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #d4a373;
+    border: none;
+    border-radius: 20px;
+    color: #1a1a1a;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+  button:hover { background: #e9c46a; }
+  .colors {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-right: 15px;
+  }
+  .color-btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s;
+  }
+  .color-btn:hover { transform: scale(1.1); }
+  .color-btn.selected { border-color: white; transform: scale(1.2); }
+</style>
+</head>
+<body>
+<header>
+  <h1>The Endless Sand Mandala 🌀</h1>
+  <a href="../index.html">&larr; Back to Home</a>
+</header>
+
+<canvas id="mandala" width="600" height="600"></canvas>
+
+<div class="controls">
+  <div class="colors">
+    <div class="color-btn selected" style="background: #e9c46a" data-color="#e9c46a"></div>
+    <div class="color-btn" style="background: #f4a261" data-color="#f4a261"></div>
+    <div class="color-btn" style="background: #e76f51" data-color="#e76f51"></div>
+    <div class="color-btn" style="background: #2a9d8f" data-color="#2a9d8f"></div>
+    <div class="color-btn" style="background: #ffffff" data-color="#ffffff"></div>
+  </div>
+  <button id="audioBtn">Meditate (Play Audio)</button>
+  <button id="resetBtn">Wash Away</button>
+</div>
+
+<script>
+  const canvas = document.getElementById('mandala');
+  const ctx = canvas.getContext('2d');
+  const resetBtn = document.getElementById('resetBtn');
+  const audioBtn = document.getElementById('audioBtn');
+  const colorBtns = document.querySelectorAll('.color-btn');
+  
+  let drawing = false;
+  let currentColor = '#e9c46a';
+  const slices = 8; // Octagonal symmetry
+  const cx = canvas.width / 2;
+  const cy = canvas.height / 2;
+  
+  // Audio variables
+  let audioCtx;
+  let isPlaying = false;
+  let droneOsc1, droneOsc2, droneGain;
+
+  colorBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      colorBtns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      currentColor = btn.dataset.color;
+    });
+  });
+
+  function clearCanvas() {
+    ctx.fillStyle = '#222';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // Draw subtle guide lines
+    ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+    ctx.beginPath();
+    for (let i = 0; i < slices; i++) {
+      const angle = (Math.PI * 2 / slices) * i;
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + Math.cos(angle) * cx, cy + Math.sin(angle) * cy);
+    }
+    ctx.stroke();
+  }
+  clearCanvas();
+
+  function drawSand(x, y, color) {
+    for(let i=0; i<6; i++) {
+      const offsetX = (Math.random() - 0.5) * 10;
+      const offsetY = (Math.random() - 0.5) * 10;
+      const size = Math.random() * 1.5 + 0.5;
+      
+      // Ensure drawing is within the circular canvas boundary visually
+      const distFromCenter = Math.sqrt(Math.pow(x + offsetX - cx, 2) + Math.pow(y + offsetY - cy, 2));
+      if (distFromCenter > canvas.width/2 - 5) continue;
+
+      ctx.fillStyle = color;
+      ctx.globalAlpha = Math.random() * 0.6 + 0.2;
+      ctx.beginPath();
+      ctx.arc(x + offsetX, y + offsetY, size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1.0;
+  }
+
+  function drawKaleidoscope(mouseX, mouseY) {
+    const dx = mouseX - cx;
+    const dy = mouseY - cy;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    let angle = Math.atan2(dy, dx);
+
+    for (let i = 0; i < slices; i++) {
+      // Draw normal
+      const a1 = angle + (Math.PI * 2 / slices) * i;
+      drawSand(cx + Math.cos(a1) * distance, cy + Math.sin(a1) * distance, currentColor);
+      
+      // Draw mirrored
+      const a2 = (Math.PI * 2 / slices) * i - angle;
+      drawSand(cx + Math.cos(a2) * distance, cy + Math.sin(a2) * distance, currentColor);
+    }
+  }
+
+  canvas.addEventListener('mousedown', (e) => {
+    drawing = true;
+    const rect = canvas.getBoundingClientRect();
+    drawKaleidoscope(e.clientX - rect.left, e.clientY - rect.top);
+  });
+  canvas.addEventListener('mousemove', (e) => {
+    if (!drawing) return;
+    const rect = canvas.getBoundingClientRect();
+    drawKaleidoscope(e.clientX - rect.left, e.clientY - rect.top);
+  });
+  window.addEventListener('mouseup', () => drawing = false);
+
+  resetBtn.addEventListener('click', () => {
+    // Fade out effect
+    let alpha = 0;
+    const fade = setInterval(() => {
+      ctx.fillStyle = `rgba(34, 34, 34, 0.1)`;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      alpha += 0.1;
+      if(alpha >= 1) {
+        clearInterval(fade);
+        clearCanvas();
+      }
+    }, 50);
+  });
+
+  // Audio setup
+  function initAudio() {
+    if(!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if(audioCtx.state === 'suspended') audioCtx.resume();
+  }
+
+  audioBtn.addEventListener('click', () => {
+    initAudio();
+    
+    if(!isPlaying) {
+      droneGain = audioCtx.createGain();
+      droneGain.gain.value = 0;
+      droneGain.connect(audioCtx.destination);
+      
+      droneOsc1 = audioCtx.createOscillator();
+      droneOsc1.type = 'sine';
+      droneOsc1.frequency.value = 98; // Deep drone
+      droneOsc1.connect(droneGain);
+      
+      droneOsc2 = audioCtx.createOscillator();
+      droneOsc2.type = 'triangle';
+      droneOsc2.frequency.value = 147; // Perfect fifth approx
+      droneOsc2.connect(droneGain);
+      
+      droneOsc1.start();
+      droneOsc2.start();
+      
+      droneGain.gain.setTargetAtTime(0.15, audioCtx.currentTime, 2.0); // Fade in
+      
+      // Modulate frequency slightly
+      setInterval(() => {
+        if(isPlaying && droneOsc1) {
+          const lfo = Math.sin(Date.now() / 2000) * 1.5;
+          droneOsc1.frequency.setTargetAtTime(98 + lfo, audioCtx.currentTime, 0.5);
+          droneOsc2.frequency.setTargetAtTime(147 + lfo * 1.5, audioCtx.currentTime, 0.5);
+        }
+      }, 1000);
+      
+      audioBtn.innerText = 'Pause Audio';
+      isPlaying = true;
+    } else {
+      droneGain.gain.setTargetAtTime(0, audioCtx.currentTime, 1.0); // Fade out
+      setTimeout(() => {
+        if(droneOsc1) {
+          droneOsc1.stop();
+          droneOsc2.stop();
+          droneOsc1.disconnect();
+          droneOsc2.disconnect();
+        }
+      }, 2000);
+      
+      audioBtn.innerText = 'Meditate (Play Audio)';
+      isPlaying = false;
+    }
+  });
+
+</script>
+</body>
+</html>

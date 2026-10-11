@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excuse Escalator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back</a>
+        <h1>Excuse Escalator</h1>
+        <div id="setup-screen">
+            <p>Enter a simple excuse:</p>
+            <input type="text" id="initial-excuse" placeholder="e.g. My dog ate my homework">
+            <button id="start-btn">Start</button>
+        </div>
+        <div id="escalation-screen" class="hidden">
+            <h2 id="current-excuse"></h2>
+            <button id="escalate-btn">Escalate!</button>
+        </div>
+        <div id="final-screen" class="hidden">
+            <h2>Final Form</h2>
+            <p id="final-excuse" class="final-text"></p>
+            <p>Rate its plausibility:</p>
+            <div class="rating">
+                <button class="rate-btn">1 - Total BS</button>
+                <button class="rate-btn">2</button>
+                <button class="rate-btn">3</button>
+                <button class="rate-btn">4</button>
+                <button class="rate-btn">5 - Completely Plausible</button>
+            </div>
+            <p id="rating-feedback"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

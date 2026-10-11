@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaos Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="../index.html" class="back-link">&larr; Back to Home</a>
+    
+    <div class="container">
+        <h1>Chaos Generator</h1>
+        
+        <div class="slot-machine">
+            <div class="category">
+                <h3>Character</h3>
+                <div class="slot" id="character-slot">Press Generate...</div>
+            </div>
+            <div class="category">
+                <h3>Situation</h3>
+                <div class="slot" id="situation-slot">Press Generate...</div>
+            </div>
+            <div class="category">
+                <h3>Location</h3>
+                <div class="slot" id="location-slot">Press Generate...</div>
+            </div>
+            <div class="category">
+                <h3>Unnecessary Complication</h3>
+                <div class="slot" id="complication-slot">Press Generate...</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="generate-btn">Generate Chaos</button>
+            <button id="explain-btn" disabled>ChatGPT, explain this situation</button>
+        </div>
+        
+        <div id="ai-response-container" class="hidden">
+            <div class="ai-header">ChatGPT:</div>
+            <div id="ai-text"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

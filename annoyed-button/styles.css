@@ -1,0 +1,83 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent scrollbars when button teleports */
+}
+
+.back-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#annoyed-btn {
+    background-color: red;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    transition: transform 0.1s, font-size 0.3s, padding 0.3s;
+}
+
+#annoyed-btn:active {
+    transform: scale(0.95);
+}
+
+#annoyed-btn.shrink {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+#crash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0078D7;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+#crash-screen h1 {
+    font-size: 8rem;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+#crash-screen p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none !important;
+}

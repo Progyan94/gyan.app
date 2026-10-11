@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What If? Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="../index.html" class="back-link">Back to Home</a>
+    <div class="container">
+        <h1>"What If?" Calculator</h1>
+        <p>Select an absurd scenario to see the calculated stats!</p>
+        
+        <div class="calculator">
+            <label for="scenario">Scenario:</label>
+            <select id="scenario">
+                <option value="soda_oceans">All Oceans Turn to Soda</option>
+                <option value="no_gravity">Gravity is Turned Off</option>
+                <option value="jump_moon">Everyone Jumps at Once</option>
+                <option value="cats_bark">Cats Bark and Dogs Meow</option>
+                <option value="earth_cheese">Earth is Made of Cheese</option>
+                <option value="sun_disco">Sun Turns Into a Disco Ball</option>
+                <option value="cats_takeover">Cats Take Over the World</option>
+                <option value="all_water_jello">All Water Turns to Jello</option>
+                <option value="reverse_aging">Everyone Ages Backwards</option>
+                <option value="cloud_trampolines">Clouds Are Trampolines</option>
+                <option value="sleep_obsolete">Sleep Becomes Obsolete</option>
+                <option value="everyone_telepaths">Everyone Becomes Telepathic</option>
+                <option value="trees_walk">Trees Can Walk</option>
+                <option value="animals_talk">Animals Can Talk</option>
+                <option value="everything_musical">Life is a Musical</option>
+                <option value="dinosaurs_return">Dinosaurs Return</option>
+                <option value="sky_neon_green">The Sky is Neon Green</option>
+                <option value="money_is_leaves">Money is Replaced by Leaves</option>
+                <option value="everyone_invisible">Everyone is Invisible</option>
+                <option value="time_freezes">Time Freezes for 24 Hours a Day</option>
+                <option value="floor_is_lava">The Floor is Literally Lava</option>
+                <option value="breathe_water">Humans Breathe Water</option>
+                <option value="no_friction">Friction Ceases to Exist</option>
+                <option value="thoughts_visible">Thoughts Appear as Thought Bubbles</option>
+                <option value="moon_crashes">The Moon Crashes into Earth</option>
+                <option value="everyone_clones">Everyone Gets a Clone</option>
+                <option value="size_shifts">Humans Randomly Change Size</option>
+                <option value="food_pills">All Food is Replaced by Pills</option>
+                <option value="internet_deletes">The Internet is Deleted</option>
+                <option value="colors_swap">All Colors Swap Randomly</option>
+            </select>
+            
+            <button id="calculate-btn">Calculate Stats</button>
+        </div>
+
+        <div id="results" class="hidden">
+            <h2>Results:</h2>
+            <div id="stat1" class="stat"></div>
+            <div id="stat2" class="stat"></div>
+            <div id="stat3" class="stat"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

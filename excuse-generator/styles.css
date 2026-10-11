@@ -1,0 +1,89 @@
+:root {
+    --bg-color: #1a1a2e;
+    --text-color: #e94560;
+    --box-bg: #16213e;
+    --btn-bg: #0f3460;
+    --btn-hover: #e94560;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--bg-color);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid var(--text-color);
+}
+
+h1 {
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 2rem;
+}
+
+.excuse-box {
+    background-color: var(--box-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    border-left: 5px solid var(--text-color);
+}
+
+#excuse-text {
+    margin: 0;
+}
+
+button {
+    background-color: var(--btn-bg);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--btn-hover);
+}
+
+.back-link {
+    display: block;
+    margin-top: 2rem;
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: white;
+}

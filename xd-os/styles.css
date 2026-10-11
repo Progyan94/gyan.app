@@ -1,0 +1,212 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Beautiful Background */
+    background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    user-select: none;
+}
+
+.desktop {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glassmorphism Styles */
+.glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Desktop Icon */
+.desktop-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 90px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.desktop-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+}
+
+/* Taskbar */
+.taskbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 10000;
+}
+
+.start-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF007F, #7F00FF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.start-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.8);
+}
+
+.start-menu {
+    position: absolute;
+    bottom: 75px;
+    left: 20px;
+    width: 320px;
+    height: 450px;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10000;
+}
+
+.start-menu h2 {
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+}
+
+.menu-item {
+    padding: 12px;
+    margin: 5px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.05);
+    transition: background 0.2s;
+    font-size: 18px;
+}
+
+.menu-item:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Windows */
+.os-window {
+    position: absolute;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 300px;
+    min-height: 250px;
+}
+
+.title-bar {
+    height: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    cursor: grab;
+    font-weight: bold;
+}
+
+.title-bar:active {
+    cursor: grabbing;
+}
+
+.close-btn {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ff5f56;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(255, 95, 86, 0.5);
+}
+.close-btn:hover {
+    background: #ff3b30;
+}
+
+.window-content {
+    padding: 20px;
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.6);
+    color: #111;
+}
+
+textarea.notepad-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none;
+    background: transparent;
+    font-family: 'Comic Sans MS', 'Courier New', Courier, monospace; /* TROLL FONT */
+    font-size: 18px;
+    outline: none;
+    color: #000;
+}
+
+/* Trolls */
+.glitch {
+    animation: glitch-anim 0.15s linear infinite;
+    filter: invert(1) hue-rotate(90deg);
+}
+
+@keyframes glitch-anim {
+    0% { transform: translate(0) }
+    20% { transform: translate(-10px, 10px) }
+    40% { transform: translate(-10px, -10px) }
+    60% { transform: translate(10px, 10px) }
+    80% { transform: translate(10px, -10px) }
+    100% { transform: translate(0) }
+}
+
+.troll-face {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: url('https://upload.wikimedia.org/wikipedia/en/9/9a/Trollface_non-free.png') no-repeat center center / contain;
+    z-index: 99999;
+    pointer-events: none;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

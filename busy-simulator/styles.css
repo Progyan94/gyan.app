@@ -1,0 +1,115 @@
+body {
+    background-color: #000;
+    color: #0f0;
+    font-family: monospace;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.back-link {
+    color: #888;
+    text-decoration: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+.back-link:hover {
+    color: #fff;
+}
+
+.controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+}
+
+button {
+    background-color: #222;
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 5px 10px;
+    font-family: monospace;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
+#terminal-container, #progress-container {
+    display: none;
+    height: 90%;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.active {
+    display: flex !important;
+}
+
+/* Terminal Styles */
+#terminal-container {
+    flex-direction: column;
+    border: 1px solid #333;
+}
+
+.terminal-header {
+    background-color: #333;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+#terminal-body {
+    padding: 10px;
+    overflow-y: hidden;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.log-line {
+    margin: 2px 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* Progress Bar Styles */
+#progress-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.progress-bar-bg {
+    width: 80%;
+    height: 30px;
+    background-color: #222;
+    border: 2px solid #555;
+    position: relative;
+}
+
+#progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #0f0;
+    transition: width 0.1s linear;
+}
+
+.progress-text {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}

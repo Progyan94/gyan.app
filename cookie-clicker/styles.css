@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0e6d2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.back-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    background: #e0d6c2;
+    border-radius: 5px;
+}
+.container {
+    display: flex;
+    width: 1200px;
+    height: 800px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.left-panel, .middle-panel, .right-panel {
+    padding: 20px;
+    width: 33.33%;
+    overflow-y: auto;
+    position: relative;
+}
+.left-panel {
+    text-align: center;
+    background: #faf4e8;
+    border-right: 2px solid #e0d6c2;
+    overflow: hidden;
+}
+.middle-panel {
+    border-right: 2px solid #e0d6c2;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes flash {
+    0%, 100% { background-color: #f0e6d2; }
+    50% { background-color: #ffcccc; }
+}
+
+body.shake {
+    animation: shake 0.5s infinite;
+}
+
+body.flash {
+    animation: flash 0.2s infinite;
+}
+
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #8b5a2b;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10;
+    animation: explode 1s forwards;
+}
+
+@keyframes explode {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+
+.achievement-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background: #fdfdfd;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.achievement-item .icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+.achievement-item .details {
+    flex: 1;
+}
+.achievement-item h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+}
+.achievement-item p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+}
+.cookie {
+    width: 200px;
+    height: 200px;
+    background-color: #d2a679;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.2), 0 10px 15px rgba(0,0,0,0.3);
+    transition: transform 0.1s;
+    background-image: radial-gradient(circle at 30% 30%, #5c4033 10px, transparent 11px),
+                      radial-gradient(circle at 70% 40%, #5c4033 12px, transparent 13px),
+                      radial-gradient(circle at 40% 70%, #5c4033 8px, transparent 9px),
+                      radial-gradient(circle at 80% 80%, #5c4033 15px, transparent 16px),
+                      radial-gradient(circle at 20% 60%, #5c4033 11px, transparent 12px);
+}
+.cookie:active {
+    transform: scale(0.95);
+}
+.score-container {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.upgrade-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.upgrade-item:hover {
+    background: #f9f9f9;
+}
+.upgrade-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+#reset-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+}

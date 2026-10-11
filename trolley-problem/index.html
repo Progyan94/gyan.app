@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Absurd Trolley Problem - Comic Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Patrick+Hand&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="comic-container">
+        <a href="../index.html" class="back-link">⮌ ESCAPE HUB</a>
+        
+        <header class="comic-header">
+            <div class="stamp-badge">ISSUE #42</div>
+            <h1 class="comic-title">THE ABSURD TROLLEY PROBLEM!</h1>
+            <p class="comic-tagline">“Philosophers hate this one simple trick with a lever!”</p>
+        </header>
+
+        <div id="game-container">
+            <div class="comic-panel-header">
+                <span class="panel-tag" id="level-indicator">PANEL 1 / 7</span>
+                <span class="dilemma-counter" id="morality-score">Moral Guilt: 0%</span>
+            </div>
+
+            <!-- Sketch / Comic Canvas Scene -->
+            <div class="scene-frame">
+                <canvas id="comic-canvas" width="760" height="340"></canvas>
+                <div class="lever-indicator" id="lever-state">LEVER: NORMAL (LOWER TRACK)</div>
+            </div>
+
+            <!-- Hand-drawn style track cards -->
+            <div class="dilemma-grid">
+                <div class="choice-card top-choice" id="card-top">
+                    <div class="choice-ribbon">SWITCH TRACK (TOP)</div>
+                    <div class="choice-illustration" id="illustration-top">⚠️</div>
+                    <h3 id="choice-a-title">Target A</h3>
+                    <p id="choice-a-desc">Description of choice A</p>
+                    <button class="sketch-btn btn-pull" id="btn-a" onclick="makeChoice('A')">
+                        <span class="btn-icon">⚡</span> PULL THE LEVER!
+                    </button>
+                </div>
+
+                <div class="choice-divider">
+                    <div class="vs-circle">VS</div>
+                </div>
+
+                <div class="choice-card bottom-choice" id="card-bottom">
+                    <div class="choice-ribbon alt">DEFAULT PATH (BOTTOM)</div>
+                    <div class="choice-illustration" id="illustration-bottom">🚂</div>
+                    <h3 id="choice-b-title">Target B</h3>
+                    <p id="choice-b-desc">Description of choice B</p>
+                    <button class="sketch-btn btn-leave" id="btn-b" onclick="makeChoice('B')">
+                        <span class="btn-icon">☕</span> DO NOTHING (LET IT ROLL)
+                    </button>
+                </div>
+            </div>
+
+            <div class="comic-dialogue-bubble" id="narrator-bubble">
+                <span class="bubble-speaker">PHILOSOPHER:</span>
+                <span id="bubble-text">“The brakes were manufactured by budget cuts. You must choose!”</span>
+            </div>
+        </div>
+
+        <div id="end-screen" class="comic-panel end-panel hidden">
+            <div class="newspaper-header">THE DAILY MORAL TRIBUNE</div>
+            <h2 class="verdict-title" id="verdict-title">ETHICAL DISASTER!</h2>
+            <div class="verdict-stamp" id="verdict-stamp">CERTIFIED UNHINGED</div>
+            <p id="verdict-summary">Summary of your questionable decisions.</p>
+            <div class="stats-recap" id="recap-list"></div>
+            <button class="sketch-btn restart-btn" onclick="restartGame()">REPLAY DILEMMA ↺</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

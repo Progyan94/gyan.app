@@ -1,0 +1,30 @@
+{
+  "$schema": "https://tauri.app/schema/v2",
+  "productName": "Gyan's Wacky World",
+  "version": "1.0.0",
+  "identifier": "com.gyanxd25.wackyworld",
+  "build": {
+    "frontendDist": ".."
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Gyan's Wacky Web World",
+        "width": 1280,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "../icons/icon-512.svg"
+    ]
+  }
+}

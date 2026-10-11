@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.back-link {
+    color: #0ff;
+    text-decoration: none;
+    font-weight: bold;
+    pointer-events: auto;
+}
+
+.back-link:hover {
+    text-shadow: 0 0 5px #0ff;
+}
+
+.game-info {
+    text-align: right;
+    pointer-events: auto;
+}
+
+.game-info h2 {
+    margin: 0 0 5px 0;
+}
+
+.game-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+#game-area {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.glitch-element {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #f0f;
+    border: 2px solid #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    animation: glitchAnim 0.2s infinite;
+}
+
+.fixed-element {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #0f0;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    transition: all 0.5s ease-out;
+    opacity: 0;
+    transform: scale(1.5);
+}
+
+@keyframes glitchAnim {
+    0% { transform: translate(0, 0) skew(0deg); }
+    20% { transform: translate(-5px, 5px) skew(10deg); }
+    40% { transform: translate(5px, -5px) skew(-10deg); }
+    60% { transform: translate(-5px, -5px) skew(5deg); }
+    80% { transform: translate(5px, 5px) skew(-5deg); }
+    100% { transform: translate(0, 0) skew(0deg); }
+}

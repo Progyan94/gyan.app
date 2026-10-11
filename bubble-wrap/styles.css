@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e0f2fe; /* Light blue background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.back-link {
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #0284c7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #0369a1;
+}
+
+.wrap-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 10px;
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    margin-bottom: 40px;
+}
+
+.bubble {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4) 60%, rgba(200, 220, 255, 0.5) 100%);
+    box-shadow: 
+        inset -5px -5px 10px rgba(0,0,0,0.1),
+        inset 5px 5px 15px rgba(255,255,255,0.8),
+        2px 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.1s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble:hover:not(.popped) {
+    transform: scale(1.05);
+}
+
+.bubble:active:not(.popped) {
+    transform: scale(0.95);
+}
+
+.bubble.popped {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    box-shadow: 
+        inset 2px 2px 5px rgba(0,0,0,0.1),
+        inset -1px -1px 2px rgba(255,255,255,0.5);
+    cursor: default;
+}
+
+.bubble.popped::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    opacity: 0.5;
+}

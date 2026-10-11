@@ -1,0 +1,477 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #030712;
+    color: #e2e8f0;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+}
+
+.neon-app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 20%, rgba(30, 27, 75, 0.45) 0%, #030712 70%);
+}
+
+/* TOP LAB HEADER */
+.lab-header {
+    padding: 16px 24px;
+    background: rgba(15, 23, 42, 0.85);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-back-btn {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: rgba(14, 165, 233, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+    transition: all 0.2s ease;
+}
+
+.nav-back-btn:hover {
+    background: rgba(56, 189, 248, 0.35);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
+    transform: translateY(-1px);
+}
+
+.brand-text h1 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.25rem;
+    color: #f8fafc;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.sub-brand {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    letter-spacing: 2px;
+}
+
+/* NEON CATEGORY LEGEND */
+.neon-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.legend-chip {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chip-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+/* NEON COLOR PALETTE BY CHEMICAL SERIES */
+/* Alkali Metals: Neon Red-Pink */
+.cat-alkali-metal, .alk-m .chip-dot { background-color: #ff0055; box-shadow: 0 0 8px #ff0055; }
+.cat-alkali-metal { border-color: #ff0055 !important; color: #ff99bb !important; }
+
+/* Alkaline Earth: Neon Orange */
+.cat-alkaline-earth, .alk-e .chip-dot { background-color: #ff7700; box-shadow: 0 0 8px #ff7700; }
+.cat-alkaline-earth { border-color: #ff7700 !important; color: #ffbb77 !important; }
+
+/* Transition Metals: Neon Cyan-Blue */
+.cat-transition, .trans .chip-dot { background-color: #00d4ff; box-shadow: 0 0 8px #00d4ff; }
+.cat-transition { border-color: #00d4ff !important; color: #99eeff !important; }
+
+/* Post-Transition Metals: Neon Teal */
+.cat-post-transition, .post-trans .chip-dot { background-color: #00ffaa; box-shadow: 0 0 8px #00ffaa; }
+.cat-post-transition { border-color: #00ffaa !important; color: #99ffdd !important; }
+
+/* Metalloids: Neon Lime */
+.cat-metalloid, .metalloid .chip-dot { background-color: #a6ff00; box-shadow: 0 0 8px #a6ff00; }
+.cat-metalloid { border-color: #a6ff00 !important; color: #ddff99 !important; }
+
+/* Reactive Nonmetals: Neon Yellow-Gold */
+.cat-nonmetal, .nonmetal .chip-dot { background-color: #ffe600; box-shadow: 0 0 8px #ffe600; }
+.cat-nonmetal { border-color: #ffe600 !important; color: #fff388 !important; }
+
+/* Noble Gases: Neon Violet-Magenta */
+.cat-noble-gas, .noble .chip-dot { background-color: #d000ff; box-shadow: 0 0 8px #d000ff; }
+.cat-noble-gas { border-color: #d000ff !important; color: #ee88ff !important; }
+
+/* Lanthanides: Electric Purple */
+.cat-lanthanide, .lanth .chip-dot { background-color: #8800ff; box-shadow: 0 0 8px #8800ff; }
+.cat-lanthanide { border-color: #8800ff !important; color: #cc88ff !important; }
+
+/* Actinides: Hot Neon Rose */
+.cat-actinide, .actin .chip-dot { background-color: #ff00aa; box-shadow: 0 0 8px #ff00aa; }
+.cat-actinide { border-color: #ff00aa !important; color: #ff99dd !important; }
+
+/* MAIN PERIODIC TABLE GRID */
+.table-container {
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+.periodic-grid {
+    display: grid;
+    grid-template-columns: repeat(18, minmax(58px, 68px));
+    grid-template-rows: repeat(7, minmax(62px, 72px)) 16px repeat(2, minmax(62px, 72px));
+    gap: 5px;
+    padding: 10px;
+    background: rgba(10, 15, 30, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+/* Individual Element Cell Tile */
+.element-tile {
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    position: relative;
+    user-select: none;
+}
+
+.element-tile:hover {
+    transform: translateY(-4px) scale(1.08);
+    z-index: 10;
+    box-shadow: 0 0 16px currentColor;
+    background: rgba(30, 41, 59, 0.95);
+}
+
+.placeholder-tile {
+    border-style: dashed !important;
+    background: rgba(15, 23, 42, 0.45) !important;
+    cursor: default !important;
+}
+
+.placeholder-tile:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.tile-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.6rem;
+    opacity: 0.8;
+}
+
+.tile-symbol {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.15rem;
+    font-weight: 900;
+    text-align: center;
+    margin: 2px 0;
+    letter-spacing: 0.5px;
+}
+
+.tile-name {
+    font-size: 0.6rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+.tile-mass {
+    font-size: 0.55rem;
+    text-align: center;
+    opacity: 0.7;
+}
+
+/* ATOMIC INSPECTOR MODAL & DRAWER */
+.atomic-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 600px;
+    max-width: 100vw;
+    height: 100vh;
+    background: rgba(7, 11, 22, 0.96);
+    border-left: 2px solid rgba(56, 189, 248, 0.35);
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(14px);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(0);
+}
+
+.atomic-modal.hidden {
+    transform: translateX(105%);
+}
+
+.modal-top-bar {
+    padding: 16px 20px;
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.element-headline {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.element-big-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    color: #94a3b8;
+}
+
+.element-big-name {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.element-big-symbol {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #38bdf8;
+    text-shadow: 0 0 10px #38bdf8;
+}
+
+.element-big-mass {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.element-chip-category {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.65rem;
+    background: rgba(56, 189, 248, 0.2);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.sim-toggles {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toggle-btn {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #94a3b8;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn.active {
+    background: linear-gradient(135deg, #0284c7, #2563eb);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+    border-color: #38bdf8;
+}
+
+.close-modal-btn {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #ef4444;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.close-modal-btn:hover {
+    background: #ef4444;
+    color: #fff;
+}
+
+/* SIMULATION VIEWPORT */
+.sim-viewport-wrapper {
+    position: relative;
+    flex: 1;
+    min-height: 340px;
+    background: #020617;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.sim-viewport-wrapper:active {
+    cursor: grabbing;
+}
+
+.sim-canvas-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+/* Hints & Telemetry Overlays */
+.camera-hint-badge {
+    position: absolute;
+    top: 12px;
+    left: 14px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.65rem;
+    color: #94a3b8;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    pointer-events: none;
+}
+
+.shell-telemetry {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    color: #38bdf8;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    pointer-events: none;
+}
+
+/* PARTICLE STRIP DIAGNOSTICS */
+.particle-strip {
+    padding: 16px 20px;
+    background: rgba(15, 23, 42, 0.95);
+    border-top: 1px solid rgba(56, 189, 248, 0.2);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.p-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.p-icon {
+    font-size: 1.4rem;
+}
+
+.p-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-title {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.p-count {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.proton-card { border-color: rgba(239, 68, 68, 0.3); }
+.neutron-card { border-color: rgba(148, 163, 184, 0.3); }
+.electron-card { border-color: rgba(56, 189, 248, 0.3); }
+
+.element-quirk-box {
+    grid-column: span 3;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px dashed rgba(56, 189, 248, 0.3);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+.quirk-tag {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.65rem;
+    color: #facc15;
+    margin-right: 6px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 1200px) {
+    .periodic-grid {
+        grid-template-columns: repeat(18, 52px);
+        grid-template-rows: repeat(10, 56px);
+    }
+}

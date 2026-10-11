@@ -1,0 +1,85 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #fce4ec;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    background: #e91e63;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    color: #e91e63;
+}
+
+.calculator {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+select {
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+}
+
+button {
+    padding: 12px;
+    font-size: 1.2rem;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #388e3c;
+}
+
+#results {
+    margin-top: 30px;
+    text-align: left;
+    background: #f1f8e9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.stat {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+.stat span {
+    font-weight: bold;
+    color: #e91e63;
+}

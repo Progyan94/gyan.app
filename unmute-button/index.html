@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Un-Mute Button</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" class="back-link">Back to Index</a>
+    <div class="container">
+        <h1>Volume Control</h1>
+        <p>Warning: Adjust carefully.</p>
+        <div class="volume-display">Volume: <span id="vol-value">0</span>%</div>
+        <input type="range" id="volume-slider" min="0" max="100" value="0">
+        <p id="message"></p>
+        
+        <div id="riddle-container" class="hidden">
+            <h3 id="riddle-text"></h3>
+            <input type="text" id="riddle-answer" placeholder="Answer here...">
+            <button id="submit-riddle">Submit</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="TsTAiPMvhBwg8DqdIbDnk7uH8Q4uYNghNOvn_GYivWE" />
+    <title>Gyan's Wacky Web World | 40+ Interactive Mini-Games & Trolls</title>
+    
+    <!-- Massive SEO Optimization -->
+    <meta name="description" content="Welcome to Gyan's Wacky Web World! Explore 40+ insanely fun interactive mini-games, simulators, troll pages, and bizarre web toys. From fake OS simulators to endless rabbit holes, waste your time here!">
+    <meta name="keywords" content="GyanXD25, mini-games, interactive web, browser games, funny websites, troll games, html5 canvas, cellular automata, sandboxels, fake OS, web toys, procrastinate, useless websites, 2-player games, web toys, bizarre sites">
+    <meta name="author" content="GyanXD25">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gyan-wacky-world.vercel.app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gyan-wacky-world.vercel.app/">
+    <meta property="og:title" content="Gyan's Wacky Web World | 40+ Mini-Games">
+    <meta property="og:description" content="Explore 40+ insanely fun interactive mini-games, simulators, troll pages, and bizarre web toys. Waste your time perfectly.">
+    <meta property="og:image" content="https://gyan-wacky-world.vercel.app/preview.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://gyan-wacky-world.vercel.app/">
+    <meta name="twitter:title" content="Gyan's Wacky Web World | 40+ Mini-Games">
+    <meta name="twitter:description" content="Explore 40+ insanely fun interactive mini-games, simulators, troll pages, and bizarre web toys. Waste your time perfectly.">
+    <meta name="twitter:image" content="https://gyan-wacky-world.vercel.app/preview.png">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff007f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Gyan Hub">
+    <link rel="apple-touch-icon" href="icons/icon-192.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Bangers&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Gyan's Interactive Hub of Chaos</h1>
+        <p>Prepare yourself for an assault on your senses and productivity.</p>
+        
+        <div class="control-panel">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search games & tags...">
+            </div>
+            <div class="sort-container">
+                <button id="sortBtn" class="sort-btn">
+                    <span class="css-logo"></span> Sort / Filter
+                </button>
+                <div id="sortDropdown" class="dropdown-content">
+                    <a href="#" data-sort="newest">Newest to Oldest</a>
+                    <a href="#" data-sort="oldest">Oldest to Newest</a>
+                    <a href="#" data-sort="az">A - Z</a>
+                    <a href="#" data-sort="za">Z - A</a>
+                    <a href="#" data-sort="likes">Most Liked ❤️</a>
+                    <a href="#" data-sort="picks">Our Best Picks 🌟</a>
+                </div>
+            </div>
+            <button id="lofiBtn" class="lofi-synth-btn">🎧 Lo-Fi Synth: OFF</button>
+            <button id="pwaInstallBtn" class="pwa-btn hidden">📲 Install App</button>
+            <button id="downloadAppsBtn" class="download-apps-btn">⬇️ Download Native App</button>
+        </div>
+
+        <!-- Download Native Apps Modal (Android APK, Windows EXE, macOS DMG, Linux AppImage) -->
+        <div id="downloadsModal" class="downloads-modal hidden">
+            <div class="modal-card">
+                <button id="closeDownloadsModal" class="close-modal-btn">✕</button>
+                <div class="modal-header">
+                    <h2>🚀 DOWNLOAD NATIVE APP</h2>
+                    <p>Powered by Capacitor (Mobile) & Tauri (Desktop)</p>
+                </div>
+                <div class="downloads-grid">
+                    <!-- Android APK -->
+                    <div class="download-card">
+                        <div class="platform-icon">🤖</div>
+                        <h3>Android</h3>
+                        <span class="platform-badge">Capacitor APK</span>
+                        <p>Standalone Android package for smartphones & tablets.</p>
+                        <a href="https://github.com/GyanXD25/gyan.app/releases/latest/download/app-debug.apk" id="apkDownloadLink" class="download-link-btn" target="_blank">⬇️ Download .APK</a>
+                        <span class="build-note">Built via GitHub Actions</span>
+                    </div>
+
+                    <!-- Windows -->
+                    <div class="download-card">
+                        <div class="platform-icon">🪟</div>
+                        <h3>Windows</h3>
+                        <span class="platform-badge">Tauri .msi / .exe</span>
+                        <p>High-performance native executable for Windows 10/11.</p>
+                        <a href="https://github.com/GyanXD25/gyan.app/releases/latest/download/gyan-wacky-world-setup.exe" id="winDownloadLink" class="download-link-btn" target="_blank">⬇️ Download for PC (.exe)</a>
+                        <span class="build-note">Built via GitHub Actions</span>
+                    </div>
+
+                    <!-- macOS -->
+                    <div class="download-card">
+                        <div class="platform-icon">🍎</div>
+                        <h3>macOS</h3>
+                        <span class="platform-badge">Tauri .dmg</span>
+                        <p>Native Apple Silicon & Intel Mac bundle.</p>
+                        <a href="https://github.com/GyanXD25/gyan.app/releases/latest/download/gyan-wacky-world.dmg" id="macDownloadLink" class="download-link-btn" target="_blank">⬇️ Download for Mac (.dmg)</a>
+                        <span class="build-note">Built via GitHub Actions</span>
+                    </div>
+
+                    <!-- Linux -->
+                    <div class="download-card">
+                        <div class="platform-icon">🐧</div>
+                        <h3>Linux</h3>
+                        <span class="platform-badge">Tauri .AppImage / .deb</span>
+                        <p>Universal Linux package for Ubuntu, Debian, Arch & Fedora.</p>
+                        <a href="https://github.com/GyanXD25/gyan.app/releases/latest/download/gyan-wacky-world.AppImage" id="linuxDownloadLink" class="download-link-btn" target="_blank">⬇️ Download (.AppImage)</a>
+                        <span class="build-note">Built via GitHub Actions</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p>💡 Tip: You can also click <strong>"Install App"</strong> on any mobile or desktop browser for an instant lightweight PWA!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category & Tag Filter Bar -->
+        <div class="category-filter-bar" id="categoryFilterBar">
+            <button class="cat-pill active" data-category="all">✨ ALL (45+)</button>
+            <button class="cat-pill" data-category="space">🌌 SPACE & SCIENCE</button>
+            <button class="cat-pill" data-category="simulation">🎮 SIMULATION & OS</button>
+            <button class="cat-pill" data-category="troll">🤡 TROLL & CHAOS</button>
+            <button class="cat-pill" data-category="zen">🌸 ZEN & RELAXING</button>
+            <button class="cat-pill" data-category="puzzle">🧩 PUZZLE & GAMES</button>
+        </div>
+    </header>
+
+    <audio id="asmrAudio" loop>
+        <!-- A placeholder chill noise, e.g. a soft brown noise or rain -->
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-light-rain-loop-2393.mp3" type="audio/mpeg">
+    </audio>
+
+    <main class="grid-container" id="gamesGrid">
+        <!-- Cards for projects with live iframe previews -->
+        <a href="infinite-scroll/index.html" class="card" id="card-1">
+            <div class="iframe-wrapper"><iframe src="infinite-scroll/index.html"></iframe></div>
+            <h2>The Rabbit Hole</h2>
+            <p>Infinite scroll of bizarre facts.</p>
+        </a>
+
+        <a href="virtual-pet/index.html" class="card" id="card-3">
+            <div class="iframe-wrapper"><iframe src="virtual-pet/index.html"></iframe></div>
+            <h2>Virtual Pet</h2>
+            <p>Please don't let it starve.</p>
+        </a>
+        <a href="soundboard/index.html" class="card" id="card-4">
+            <div class="iframe-wrapper"><iframe src="soundboard/index.html"></iframe></div>
+            <h2>MIDI Soundboard</h2>
+            <p>Beep boop your way to insanity.</p>
+        </a>
+
+        <a href="art-canvas/index.html" class="card" id="card-6">
+            <div class="iframe-wrapper"><iframe src="art-canvas/index.html"></iframe></div>
+            <h2>Abstract Art</h2>
+            <p>Unleash your inner chaotic Picasso.</p>
+        </a>
+
+        <a href="impossible-button/index.html" class="card" id="card-8">
+            <div class="iframe-wrapper"><iframe src="impossible-button/index.html"></iframe></div>
+            <h2>Impossible Button</h2>
+            <p>Maximum troll activated.</p>
+        </a>
+        <a href="cookie-clicker/index.html" class="card" id="card-9">
+            <div class="iframe-wrapper"><iframe src="cookie-clicker/index.html"></iframe></div>
+            <h2>Cookie Clicker</h2>
+            <p>Click, upgrade, consume all.</p>
+        </a>
+        <a href="higher-lower/index.html" class="card" id="card-10">
+            <div class="iframe-wrapper"><iframe src="higher-lower/index.html"></iframe></div>
+            <h2>Higher or Lower</h2>
+            <p>Guess the stats!</p>
+        </a>
+        <a href="universe-zoom/index.html" class="card" id="card-11">
+            <div class="iframe-wrapper"><iframe src="universe-zoom/index.html"></iframe></div>
+            <h2>Universe Zoom</h2>
+            <p>From atoms to galaxies.</p>
+        </a>
+        <a href="what-if/index.html" class="card" id="card-12">
+            <div class="iframe-wrapper"><iframe src="what-if/index.html"></iframe></div>
+            <h2>What If?</h2>
+            <p>Absurd hypothetical calculator.</p>
+        </a>
+        <a href="paper-shredder/index.html" class="card" id="card-13">
+            <div class="iframe-wrapper"><iframe src="paper-shredder/index.html"></iframe></div>
+            <h2>Paper Shredder</h2>
+            <p>Destroy your thoughts.</p>
+        </a>
+        <a href="debris-tracker/index.html" class="card" id="card-14">
+            <div class="iframe-wrapper"><iframe src="debris-tracker/index.html"></iframe></div>
+            <h2>Space Debris Tracker</h2>
+            <p>Monitor fictional satellites.</p>
+        </a>
+        <a href="conspiracy/index.html" class="card" id="card-15">
+            <div class="iframe-wrapper"><iframe src="conspiracy/index.html"></iframe></div>
+            <h2>Conspiracy Generator</h2>
+            <p>The truth is out there.</p>
+        </a>
+        <a href="busy-simulator/index.html" class="card" id="card-16">
+            <div class="iframe-wrapper"><iframe src="busy-simulator/index.html"></iframe></div>
+            <h2>Productivity Illusionist</h2>
+            <p>Look busy for the boss.</p>
+        </a>
+        <a href="life-stats/index.html" class="card" id="card-17">
+            <div class="iframe-wrapper"><iframe src="life-stats/index.html"></iframe></div>
+            <h2>Life Stats</h2>
+            <p>Useless milestones.</p>
+        </a>
+        <a href="catch-glitch/index.html" class="card" id="card-18">
+            <div class="iframe-wrapper"><iframe src="catch-glitch/index.html"></iframe></div>
+            <h2>Catch the Glitch</h2>
+            <p>Fix the broken UI.</p>
+        </a>
+        <a href="infinite-maze/index.html" class="card" id="card-19">
+            <div class="iframe-wrapper"><iframe src="infinite-maze/index.html"></iframe></div>
+            <h2>Infinite Maze</h2>
+            <p>You can never leave.</p>
+        </a>
+        <a href="bubble-wrap/index.html" class="card" id="card-20">
+            <div class="iframe-wrapper"><iframe src="bubble-wrap/index.html"></iframe></div>
+            <h2>Bubble Wrap</h2>
+            <p>Pop. Pop. Pop.</p>
+        </a>
+        <a href="ultimate-captcha/index.html" class="card" id="card-21">
+            <div class="iframe-wrapper"><iframe src="ultimate-captcha/index.html"></iframe></div>
+            <h2>The Ultimate CAPTCHA</h2>
+            <p>Prove you are human.</p>
+        </a>
+        <a href="password-nightmare/index.html" class="card" id="card-22">
+            <div class="iframe-wrapper"><iframe src="password-nightmare/index.html"></iframe></div>
+            <h2>Password Nightmare</h2>
+            <p>Follow the rules.</p>
+        </a>
+        <a href="captcha-existence/index.html" class="card" id="card-23">
+            <div class="iframe-wrapper"><iframe src="captcha-existence/index.html"></iframe></div>
+            <h2>CAPTCHA of Existence</h2>
+            <p>Are you a simulation?</p>
+        </a>
+        <a href="wifi-balancer/index.html" class="card" id="card-24">
+            <div class="iframe-wrapper"><iframe src="wifi-balancer/index.html"></iframe></div>
+            <h2>Wi-Fi Balancer</h2>
+            <p>Keep the signal alive.</p>
+        </a>
+        <a href="unmute-button/index.html" class="card" id="card-25">
+            <div class="iframe-wrapper"><iframe src="unmute-button/index.html"></iframe></div>
+            <h2>The Un-Mute Button</h2>
+            <p>A slider that fights back.</p>
+        </a>
+        <a href="update-simulator/index.html" class="card" id="card-26">
+            <div class="iframe-wrapper"><iframe src="update-simulator/index.html"></iframe></div>
+            <h2>Update Simulator</h2>
+            <p>Restart later... forever.</p>
+        </a>
+        <a href="reverse-cookie/index.html" class="card" id="card-27">
+            <div class="iframe-wrapper"><iframe src="reverse-cookie/index.html"></iframe></div>
+            <h2>Reverse Cookie Jar</h2>
+            <p>Do NOT click the cookie.</p>
+        </a>
+        <a href="infinite-tos/index.html" class="card" id="card-28">
+            <div class="iframe-wrapper"><iframe src="infinite-tos/index.html"></iframe></div>
+            <h2>Infinite T&C</h2>
+            <p>Read the fine print.</p>
+        </a>
+        <a href="pebble-skip/index.html" class="card" id="card-29">
+            <div class="iframe-wrapper"><iframe src="pebble-skip/index.html"></iframe></div>
+            <h2>Infinite Pebble Skip</h2>
+            <p>Calm physics toy.</p>
+        </a>
+        <a href="cloud-weaver/index.html" class="card" id="card-30">
+            <div class="iframe-wrapper"><iframe src="cloud-weaver/index.html"></iframe></div>
+            <h2>The Cloud Weaver</h2>
+            <p>Shape the sky.</p>
+        </a>
+        <a href="sound-garden/index.html" class="card" id="card-31">
+            <div class="iframe-wrapper"><iframe src="sound-garden/index.html"></iframe></div>
+            <h2>The Sound Garden</h2>
+            <p>Grow ambient music.</p>
+        </a>
+        <a href="sand-mandala/index.html" class="card" id="card-32">
+            <div class="iframe-wrapper"><iframe src="sand-mandala/index.html"></iframe></div>
+            <h2>Sand Mandala</h2>
+            <p>Zen kaleidoscope.</p>
+        </a>
+        <a href="letter-bottle/index.html" class="card" id="card-33">
+            <div class="iframe-wrapper"><iframe src="letter-bottle/index.html"></iframe></div>
+            <h2>Floating Letter Bottle</h2>
+            <p>Messages in the sea.</p>
+        </a>
+        <a href="seasonal-island/index.html" class="card" id="card-34">
+            <div class="iframe-wrapper"><iframe src="seasonal-island/index.html"></iframe></div>
+            <h2>Seasonal Island</h2>
+            <p>Draw your seasons.</p>
+        </a>
+        <a href="ember-aqua/index.html" class="card" id="card-35">
+            <div class="iframe-wrapper"><iframe src="ember-aqua/index.html"></iframe></div>
+            <h2>Ember & Aqua</h2>
+            <p>2-Player Co-op Puzzle.</p>
+        </a>
+        <a href="sandboxel-clone/index.html" class="card" id="card-36">
+            <div class="iframe-wrapper"><iframe src="sandboxel-clone/index.html"></iframe></div>
+            <h2>Particle Sandbox</h2>
+            <p>Falling sand physics.</p>
+        </a>
+        <a href="internet-credits/index.html" class="card" id="card-37">
+            <div class="iframe-wrapper"><iframe src="internet-credits/index.html"></iframe></div>
+            <h2>The Internet Credits</h2>
+            <p>Waste your whole life.</p>
+        </a>
+        <a href="fake-os/index.html" class="card" id="card-38">
+            <div class="iframe-wrapper"><iframe src="fake-os/index.html"></iframe></div>
+            <h2>Fake OS</h2>
+            <p>We promise there won't be any lag on the Virtual Machine.</p>
+        </a>
+        <a href="xd-os/index.html" class="card" id="card-x">
+            <div class="iframe-wrapper"><iframe src="xd-os/index.html"></iframe></div>
+            <h2>XD OS</h2>
+            <p>React-powered lag.</p>
+        </a>
+        <a href="annoyed-button/index.html" class="card" id="card-39">
+            <div class="iframe-wrapper"><iframe src="annoyed-button/index.html"></iframe></div>
+            <h2>Do Not Click</h2>
+            <p>It hates you.</p>
+        </a>
+        <a href="excuse-gen/index.html" class="card" id="card-40">
+            <div class="iframe-wrapper"><iframe src="excuse-gen/index.html"></iframe></div>
+            <h2>Excuse Generator</h2>
+            <p>Get out of anything.</p>
+        </a>
+        <a href="excuse-escalator/index.html" class="card" id="card-41">
+            <div class="iframe-wrapper"><iframe src="excuse-escalator/index.html"></iframe></div>
+            <h2>Excuse Escalator</h2>
+            <p>It gets worse.</p>
+        </a>
+        <a href="ai-courtroom/index.html" class="card" id="card-42">
+            <div class="iframe-wrapper"><iframe src="ai-courtroom/index.html"></iframe></div>
+            <h2>AI Courtroom</h2>
+            <p>Sue a toaster.</p>
+        </a>
+        <a href="bad-science/index.html" class="card" id="card-43">
+            <div class="iframe-wrapper"><iframe src="bad-science/index.html"></iframe></div>
+            <h2>Bad Science</h2>
+            <p>Cursed discoveries.</p>
+        </a>
+        <a href="chaos-generator/index.html" class="card" id="card-44">
+            <div class="iframe-wrapper"><iframe src="chaos-generator/index.html"></iframe></div>
+            <h2>GyanChaos Gen</h2>
+            <p>Absolute nonsense.</p>
+        </a>
+        <a href="trolley-problem/index.html" class="card" id="card-45">
+            <div class="iframe-wrapper"><iframe src="trolley-problem/index.html"></iframe></div>
+            <h2>Absurd Trolley</h2>
+            <p>Impossible choices.</p>
+        </a>
+        <a href="periodic-table/index.html" class="card" id="card-46" data-category="space">
+            <div class="iframe-wrapper"><iframe src="periodic-table/index.html"></iframe></div>
+            <h2>Neon Periodic Table</h2>
+            <p>3D poly-asset atomic shells.</p>
+        </a>
+        <a href="solar-system/index.html" class="card" id="card-47" data-category="space">
+            <div class="iframe-wrapper"><iframe src="solar-system/index.html"></iframe></div>
+            <h2>Solar System Scope</h2>
+            <p>3D & 2D Orrery, timeline & celestial search.</p>
+        </a>
+    </main>
+
+    <footer>
+        <p>Find me on the internet:</p>
+        <div class="social-links">
+            <a href="https://youtube.com/@GyanXD25" target="_blank">YouTube: @GyanXD25</a>
+            <a href="https://instagram.com/GyanXD25" target="_blank">Insta: @GyanXD25</a>
+            <a href="https://reddit.com/user/GyanXD25" target="_blank">Reddit: @GyanXD25</a>
+            <span>Minecraft Bedrock: @GyanXD25</span>
+            <a href="https://gyan-portfolio-coral.vercel.app/" target="_blank">Portfolio</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

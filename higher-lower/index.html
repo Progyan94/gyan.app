@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher or Lower</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="../index.html" class="back-link">Back to Home</a>
+    <div class="container">
+        <h1>Higher or Lower</h1>
+        <div class="score-board">
+            Score: <span id="score">0</span> | High Score: <span id="high-score">0</span>
+        </div>
+        
+        <div class="game-area">
+            <div class="item" id="item1">
+                <h2 id="name1">Item 1</h2>
+                <div class="value" id="val1">100</div>
+            </div>
+            
+            <div class="vs">
+                <div class="controls">
+                    <button class="btn" id="higher-btn">Higher ▲</button>
+                    <div class="vs-text">VS</div>
+                    <button class="btn" id="lower-btn">Lower ▼</button>
+                </div>
+            </div>
+
+            <div class="item" id="item2">
+                <h2 id="name2">Item 2</h2>
+                <div class="value hidden" id="val2">???</div>
+            </div>
+        </div>
+
+        <div id="result" class="result"></div>
+        <button id="next-btn" class="btn hidden">Next Round</button>
+        <button id="restart-btn" class="btn hidden">Restart Game</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

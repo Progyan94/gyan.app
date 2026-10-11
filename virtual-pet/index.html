@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoPet: Cyber Genesis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="device-casing">
+        <div class="casing-header">
+            <a href="../index.html" class="device-back-btn">⮌ EXIT</a>
+            <span class="device-brand">TAMAGYAN 3000™</span>
+            <span class="battery-indicator">🔋 98%</span>
+        </div>
+
+        <div class="lcd-screen">
+            <!-- Top HUD: Name, Stage, Level, Coins -->
+            <div class="lcd-hud">
+                <div class="hud-left">
+                    <span id="pet-name">Gobi</span>
+                    <span class="stage-badge" id="pet-stage">BABY BLOB</span>
+                </div>
+                <div class="hud-right">
+                    <span>LVL <strong id="pet-level">1</strong></span>
+                    <span>💰 <strong id="pet-coins">50</strong></span>
+                    <span>✨ <strong id="pet-mood">HAPPY</strong></span>
+                </div>
+            </div>
+
+            <!-- Notification Toast / Dialogue -->
+            <div class="pet-speech-bubble" id="pet-speech">
+                "Bloop! I have spawned into your browser!"
+            </div>
+
+            <!-- Pet Habitat Canvas / Interactive Area -->
+            <div class="habitat-viewport" id="habitat">
+                <canvas id="pet-canvas" width="380" height="240"></canvas>
+                <div class="particle-layer" id="particle-layer"></div>
+                <div class="poop-container" id="poop-container"></div>
+            </div>
+
+            <!-- Status Metrics -->
+            <div class="meters-panel">
+                <div class="meter-box">
+                    <div class="meter-label"><span>🍗 HUNGER</span><span id="txt-hunger">80%</span></div>
+                    <div class="pixel-bar"><div class="fill hunger-fill" id="bar-hunger"></div></div>
+                </div>
+                <div class="meter-box">
+                    <div class="meter-label"><span>💖 HAPPINESS</span><span id="txt-happy">90%</span></div>
+                    <div class="pixel-bar"><div class="fill happy-fill" id="bar-happy"></div></div>
+                </div>
+                <div class="meter-box">
+                    <div class="meter-label"><span>⚡ ENERGY</span><span id="txt-energy">100%</span></div>
+                    <div class="pixel-bar"><div class="fill energy-fill" id="bar-energy"></div></div>
+                </div>
+                <div class="meter-box">
+                    <div class="meter-label"><span>🧼 HYGIENE</span><span id="txt-hygiene">100%</span></div>
+                    <div class="pixel-bar"><div class="fill hygiene-fill" id="bar-hygiene"></div></div>
+                </div>
+                <div class="meter-box xp-box">
+                    <div class="meter-label"><span>🧬 EVOLUTION XP</span><span id="txt-xp">0/100</span></div>
+                    <div class="pixel-bar"><div class="fill xp-fill" id="bar-xp"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls & Action Buttons -->
+        <div class="keypad-grid">
+            <button class="key-btn btn-feed" id="btn-feed" title="Feed food item">
+                <span class="key-icon">🍕</span>
+                <span class="key-label">FEED</span>
+            </button>
+            <button class="key-btn btn-pet" id="btn-pet" title="Pet and tickle">
+                <span class="key-icon">🖐️</span>
+                <span class="key-label">PET</span>
+            </button>
+            <button class="key-btn btn-minigame" id="btn-game" title="Play Catch-the-Berry game">
+                <span class="key-icon">🎮</span>
+                <span class="key-label">ARCADE</span>
+            </button>
+            <button class="key-btn btn-clean" id="btn-clean" title="Clean poops & wash">
+                <span class="key-icon">🚿</span>
+                <span class="key-label">CLEAN</span>
+            </button>
+            <button class="key-btn btn-sleep" id="btn-sleep" title="Turn lights off to sleep">
+                <span class="key-icon">🌙</span>
+                <span class="key-label">SLEEP</span>
+            </button>
+            <button class="key-btn btn-shop" id="btn-shop" title="Buy hats, food & potions">
+                <span class="key-icon">🏪</span>
+                <span class="key-label">SHOP</span>
+            </button>
+        </div>
+
+        <!-- Modal for Mini-game & Shop -->
+        <div class="modal-overlay hidden" id="modal-container">
+            <div class="pixel-modal" id="modal-content">
+                <!-- Dynamically loaded -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

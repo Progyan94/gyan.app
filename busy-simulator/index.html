@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Illusionist</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="../index.html" class="back-link">Back to Home</a>
+    
+    <div class="controls">
+        <button id="toggle-mode">Toggle Mode: Progress</button>
+    </div>
+
+    <div id="terminal-container" class="active">
+        <div class="terminal-header">
+            <span>user@system: ~</span>
+        </div>
+        <div id="terminal-body"></div>
+    </div>
+
+    <div id="progress-container">
+        <h2>Compiling system kernel...</h2>
+        <div class="progress-bar-bg">
+            <div id="progress-fill"></div>
+        </div>
+        <div class="progress-text">
+            <span id="progress-percent">0%</span> - <span id="progress-status">Initializing...</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

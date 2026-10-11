@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Island Route</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../index.html" class="back-link">&larr; Back</a>
+            <h1>Seasonal Island Sandbox</h1>
+        </header>
+        
+        <div class="controls">
+            <div class="tools">
+                <h3>Build Tools</h3>
+                <button class="tool-btn active" data-tool="grass">Grass (Clear)</button>
+                <button class="tool-btn" data-tool="path">Path</button>
+                <button class="tool-btn" data-tool="tree">Tree</button>
+                <button class="tool-btn" data-tool="house">House</button>
+            </div>
+            <div class="seasons">
+                <h3>Seasons</h3>
+                <button class="season-btn active" data-season="spring">Spring</button>
+                <button class="season-btn" data-season="summer">Summer</button>
+                <button class="season-btn" data-season="autumn">Autumn</button>
+                <button class="season-btn" data-season="winter">Winter</button>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

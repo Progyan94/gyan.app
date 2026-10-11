@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Soundboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">&larr; Back to Home</a>
+        <h1>Crazy Soundboard</h1>
+        <p>Click the buttons or press A-L to play synth sounds!</p>
+        
+        <div class="controls">
+            <button id="record-btn" class="control-btn">Record</button>
+            <button id="download-btn" class="control-btn" disabled>Download Music (.mid)</button>
+        </div>
+
+        <div class="grid" id="sound-grid">
+            <!-- Buttons generated via JS -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/midi-writer-js@3.2.1/browser/midiwriter.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

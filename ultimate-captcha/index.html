@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Captcha</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">&larr; Back to Home</a>
+        <h1>Prove You Are Human</h1>
+        <div id="game-container">
+            <!-- Stage 1 -->
+            <div id="stage-1" class="stage active">
+                <p>Stage 1: Basic Verification</p>
+                <label>
+                    <input type="checkbox" id="human-checkbox">
+                    I am not a robot
+                </label>
+                <button id="btn-1" class="btn" disabled>Next</button>
+            </div>
+            
+            <!-- Stage 2 -->
+            <div id="stage-2" class="stage">
+                <p>Stage 2: Visual Processing</p>
+                <div id="moving-text" class="distorted">h8G9aKp</div>
+                <input type="text" id="captcha-input" placeholder="Type the text above">
+                <button id="btn-2" class="btn">Verify</button>
+            </div>
+
+            <!-- Stage 3 -->
+            <div id="stage-3" class="stage">
+                <p>Stage 3: Cognitive Load</p>
+                <p>Solve: <span id="math-problem">∫(3x² + 2x + 5)dx from 0 to 2 = ?</span></p>
+                <p>Time remaining: <span id="timer">5.0</span>s</p>
+                <input type="number" id="math-input" placeholder="Answer">
+                <button id="btn-3" class="btn">Submit</button>
+            </div>
+
+            <!-- Stage 4 -->
+            <div id="stage-4" class="stage">
+                <p>Stage 4: Conceptual Understanding</p>
+                <p>Select all images containing the concept of <strong>existential dread</strong>.</p>
+                <div class="image-grid">
+                    <div class="img-square" data-correct="false">1</div>
+                    <div class="img-square" data-correct="true">2</div>
+                    <div class="img-square" data-correct="false">3</div>
+                    <div class="img-square" data-correct="true">4</div>
+                    <div class="img-square" data-correct="true">5</div>
+                    <div class="img-square" data-correct="false">6</div>
+                    <div class="img-square" data-correct="false">7</div>
+                    <div class="img-square" data-correct="true">8</div>
+                    <div class="img-square" data-correct="false">9</div>
+                </div>
+                <button id="btn-4" class="btn">Verify</button>
+            </div>
+            
+            <!-- Success/Fail Message -->
+            <div id="message-container"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

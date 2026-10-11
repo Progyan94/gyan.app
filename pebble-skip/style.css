@@ -1,0 +1,34 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 60%, #1E90FF 60%, #00008B 100%);
+    font-family: sans-serif;
+}
+#lake {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #333;
+    text-decoration: none;
+    background: rgba(255,255,255,0.7);
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 10;
+}
+.instructions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #333;
+    background: rgba(255,255,255,0.7);
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 10;
+    pointer-events: none;
+}

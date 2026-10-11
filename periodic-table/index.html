@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Atomic Lab: Periodic Table Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Three.js for 3D Poly-Asset Simulation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div class="neon-app">
+        <!-- Top Lab HUD -->
+        <header class="lab-header">
+            <div class="header-left">
+                <a href="../index.html" class="nav-back-btn">⮌ EXIT TO HUB</a>
+                <div class="brand-text">
+                    <span class="sub-brand">QUANTUM NEON ACCELERATOR</span>
+                    <h1>PERIODIC TABLE & ATOMIC LAB</h1>
+                </div>
+            </div>
+
+            <!-- Legend of Neon Chemical Groups -->
+            <div class="neon-legend">
+                <span class="legend-chip alk-m"><span class="chip-dot"></span>Alkali Metals</span>
+                <span class="legend-chip alk-e"><span class="chip-dot"></span>Alkaline Earth</span>
+                <span class="legend-chip trans"><span class="chip-dot"></span>Transition</span>
+                <span class="legend-chip post-trans"><span class="chip-dot"></span>Post-Transition</span>
+                <span class="legend-chip metalloid"><span class="chip-dot"></span>Metalloids</span>
+                <span class="legend-chip nonmetal"><span class="chip-dot"></span>Reactive Nonmetals</span>
+                <span class="legend-chip noble"><span class="chip-dot"></span>Noble Gases</span>
+                <span class="legend-chip lanth"><span class="chip-dot"></span>Lanthanides</span>
+                <span class="legend-chip actin"><span class="chip-dot"></span>Actinides</span>
+            </div>
+        </header>
+
+        <!-- Main Periodic Table Grid View -->
+        <main class="table-container">
+            <div class="periodic-grid" id="periodic-grid">
+                <!-- 118 Elements dynamically built with glowing neon classes -->
+            </div>
+        </main>
+
+        <!-- Atomic Inspector Drawer / Modal (3D & 2D Simulation) -->
+        <aside class="atomic-modal hidden" id="atomic-modal">
+            <!-- Modal Header -->
+            <div class="modal-top-bar">
+                <div class="element-headline">
+                    <span class="element-big-number" id="elem-number">6</span>
+                    <h2 class="element-big-name" id="elem-name">CARBON</h2>
+                    <span class="element-big-symbol" id="elem-symbol">C</span>
+                    <span class="element-big-mass" id="elem-mass">12.011 u</span>
+                    <span class="element-chip-category" id="elem-category">REACTIVE NONMETAL</span>
+                </div>
+
+                <!-- Simulation Toggle Controls (3D vs 2D) -->
+                <div class="sim-toggles">
+                    <button class="toggle-btn active" id="btn-sim-3d">💎 3D POLY ATOM</button>
+                    <button class="toggle-btn" id="btn-sim-2d">⚡ 2D BOHR SHELL</button>
+                    <button class="close-modal-btn" id="btn-close-modal" title="Close Inspector">✕</button>
+                </div>
+            </div>
+
+            <!-- Simulation Viewport -->
+            <div class="sim-viewport-wrapper">
+                <div id="three-viewport" class="sim-canvas-box"></div>
+                <canvas id="two-canvas" class="sim-canvas-box hidden"></canvas>
+
+                <!-- Interactive Camera Controls Hint Overlay -->
+                <div class="camera-hint-badge">
+                    <span>🖱️ CLICK + DRAG: ROTATE CAMERA</span>
+                    <span>📜 SCROLL: ZOOM NUCLEUS / SHELLS</span>
+                </div>
+
+                <!-- Active Shells Telemetry Overlay -->
+                <div class="shell-telemetry" id="shell-telemetry">
+                    <!-- Populated dynamically: K: 2, L: 4, etc. -->
+                </div>
+            </div>
+
+            <!-- Lower Particle Diagnostic Strip -->
+            <div class="particle-strip">
+                <div class="p-card proton-card">
+                    <div class="p-icon">🔴</div>
+                    <div class="p-info">
+                        <span class="p-title">PROTONS (Z)</span>
+                        <strong class="p-count" id="count-protons">6</strong>
+                    </div>
+                </div>
+
+                <div class="p-card neutron-card">
+                    <div class="p-icon">⚪</div>
+                    <div class="p-info">
+                        <span class="p-title">NEUTRONS (N)</span>
+                        <strong class="p-count" id="count-neutrons">6</strong>
+                    </div>
+                </div>
+
+                <div class="p-card electron-card">
+                    <div class="p-icon">🔵</div>
+                    <div class="p-info">
+                        <span class="p-title">ELECTRONS (e⁻)</span>
+                        <strong class="p-count" id="count-electrons">6</strong>
+                    </div>
+                </div>
+
+                <div class="element-quirk-box">
+                    <span class="quirk-tag">QUIRK & TRIVIA:</span>
+                    <p id="elem-quirk">Forms the backbone of all terrestrial organic chemistry and diamond crystal lattices!</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

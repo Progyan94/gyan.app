@@ -1,0 +1,120 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.back-link {
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.stage {
+    display: none;
+    margin-top: 20px;
+}
+
+.stage.active {
+    display: block;
+}
+
+.distorted {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    letter-spacing: 5px;
+    transform: skew(-10deg) rotate(5deg);
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    margin: 20px 0;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+    background: #218838;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.img-square {
+    height: 80px;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    color: #999;
+    transition: transform 0.1s, border 0.1s;
+    border: 2px solid transparent;
+}
+
+.img-square.selected {
+    border: 2px solid #007bff;
+    transform: scale(0.95);
+}
+
+#message-container {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}

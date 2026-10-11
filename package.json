@@ -1,0 +1,21 @@
+{
+  "name": "gyan-wacky-world",
+  "version": "1.0.0",
+  "description": "Gyan's Wacky Web World - 45+ Mini-Games & Solar System Scope",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "cap:sync": "npx cap sync",
+    "cap:android": "npx cap open android",
+    "cap:ios": "npx cap open ios",
+    "tauri:dev": "cargo tauri dev",
+    "tauri:build": "cargo tauri build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/ios": "^6.0.0"
+  }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universe Zoom: Powers of Ten Simulation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Three.js for 3D Simulation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <!-- Top HUD Navigation -->
+        <header class="hud-header">
+            <div class="hud-left">
+                <a href="../index.html" class="nav-back-btn">⮌ EXIT TO HUB</a>
+                <div class="title-group">
+                    <span class="project-tag">POWERS OF TEN SIMULATOR</span>
+                    <h1>COSMIC SCALE EXPLORER</h1>
+                </div>
+            </div>
+
+                <div class="mode-toggle-group">
+                    <span class="toggle-label">RENDER ENGINE:</span>
+                    <button class="mode-btn active" id="btn-3d" title="WebGL 3D Orbiting Shaders & Particle Universe">🌌 3D COSMOS (HIGH-END)</button>
+                    <button class="mode-btn" id="btn-2d" title="Optimized 2D Vector Canvas Diagrams">⚡ 2D TACTICAL (LOW-END)</button>
+                </div>
+                <div class="mode-toggle-group view-style-group">
+                    <span class="toggle-label">VIEW TYPE:</span>
+                    <button class="mode-btn active" id="btn-style-realistic" title="Procedural Photorealistic Textures, Terrain, Continents, Solar System Orbits & Galactic Arm Shaders">🌍 REALISTIC & TERRAIN</button>
+                    <button class="mode-btn" id="btn-style-poly" title="Stylized Low-Poly Geometry Wireframes & Poly-Assets">💎 POLY-ASSET</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Viewport Container for 3D and 2D -->
+        <main id="viewport">
+            <!-- 3D Canvas Mount Point -->
+            <div id="three-container"></div>
+
+            <!-- 2D Canvas Mount Point -->
+            <canvas id="two-canvas" class="hidden"></canvas>
+
+            <!-- Holographic Reticle Overlay -->
+            <div class="crosshair-reticle">
+                <div class="reticle-ring"></div>
+                <div class="reticle-cross"></div>
+            </div>
+        </main>
+
+        <!-- Lower Control Deck & Metric Panel -->
+        <footer class="hud-deck">
+            <!-- Left Info Card -->
+            <div class="info-pod" id="info-pod">
+                <div class="pod-header">
+                    <span class="classification" id="target-category">BIOLOGICAL SCALE</span>
+                    <h2 class="target-name" id="target-name">Human Being</h2>
+                </div>
+                <div class="scientific-notation" id="target-exponent">10⁰ METERS (1.7 m)</div>
+                <p class="target-desc" id="target-desc">Homo sapiens: an apex sentient organism capable of constructing particle colliders and asking existential questions.</p>
+                <div class="meta-tags" id="target-tags">
+                    <span class="tag">Carbon-Based</span>
+                    <span class="tag">Macroscopic</span>
+                </div>
+            </div>
+
+            <!-- Central Zoom Control Slider & Jump Shortcuts -->
+            <div class="slider-console">
+                <div class="slider-legend">
+                    <button class="preset-btn" data-target="-15">QUARK</button>
+                    <button class="preset-btn" data-target="-10">ATOM</button>
+                    <button class="preset-btn" data-target="-6">CELL</button>
+                    <button class="preset-btn" data-target="0">HUMAN</button>
+                    <button class="preset-btn" data-target="7">EARTH</button>
+                    <button class="preset-btn" data-target="9">SUN</button>
+                    <button class="preset-btn" data-target="13">SOLAR SYS</button>
+                    <button class="preset-btn" data-target="21">MILKY WAY</button>
+                    <button class="preset-btn" data-target="26">OBSERVABLE</button>
+                </div>
+
+                <div class="slider-track-wrap">
+                    <input type="range" id="zoom-slider" min="-18" max="27" step="0.05" value="0.23">
+                </div>
+
+                <div class="slider-labels">
+                    <span>10⁻¹⁸ m (Planck / Quarks)</span>
+                    <span class="current-scale-pill" id="scale-pill">SCALE: 10⁰·²³ m</span>
+                    <span>10⁺²⁷ m (Observable Universe)</span>
+                </div>
+            </div>
+
+            <!-- Right Telemetry Diagnostics -->
+            <div class="telemetry-pod">
+                <div class="telemetry-row">
+                    <span class="tel-label">CAMERA DISTANCE:</span>
+                    <span class="tel-val" id="tel-dist">1.700 meters</span>
+                </div>
+                <div class="telemetry-row">
+                    <span class="tel-label">LIGHT SPEED LAG:</span>
+                    <span class="tel-val" id="tel-light">5.67 ns</span>
+                </div>
+                <div class="telemetry-row">
+                    <span class="tel-label">QUANTUM JITTER:</span>
+                    <span class="tel-val" id="tel-jitter">0.0003%</span>
+                </div>
+                <div class="zoom-wheel-hint">
+                    🖱️ SCROLL MOUSE WHEEL OR DRAG SLIDER TO TRAVEL REALMS
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

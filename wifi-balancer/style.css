@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #222;
+    color: white;
+    font-family: sans-serif;
+}
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    z-index: 100;
+}
+#game-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+#buffer-container {
+    width: 80%;
+    height: 20px;
+    background: #444;
+    margin: 20px auto;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#buffer-bar {
+    width: 100%;
+    height: 100%;
+    background: #0f0;
+    transition: width 0.1s, background-color 0.2s;
+}
+#game-area {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: none;
+}
+#router {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+#router .body {
+    width: 60px;
+    height: 20px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+}
+#router .antenna {
+    width: 4px;
+    height: 20px;
+    background: #aaa;
+    position: absolute;
+    bottom: 20px;
+}
+#router .antenna:nth-child(1) { left: 10px; transform: rotate(-20deg); transform-origin: bottom center; }
+#router .antenna:nth-child(2) { right: 10px; transform: rotate(20deg); transform-origin: bottom center; }
+
+.obstacle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #f00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #f00;
+}
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border: 2px solid #fff;
+    display: none;
+    cursor: pointer;
+    z-index: 50;
+}
