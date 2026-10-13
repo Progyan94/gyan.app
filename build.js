@@ -19,7 +19,9 @@ const IGNORE_LIST = new Set([
     'capacitor.config.json',
     'Cargo.lock',
     'README.md',
-    'CONTRIBUTING.md'
+    'CONTRIBUTING.md',
+    'vercel.json',
+    'generate_celestial.js'
 ]);
 
 function copyRecursive(src, dest) {
