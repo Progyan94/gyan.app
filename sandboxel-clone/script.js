@@ -50,16 +50,37 @@ document.getElementById('clear-btn').addEventListener('click', () => {
     fireLife = createGrid();
 });
 
-// Mouse painting
+// Mouse & Touch painting
 canvas.addEventListener('mousedown', (e) => { isPainting = true; paint(e); });
 window.addEventListener('mouseup', () => isPainting = false);
 canvas.addEventListener('mousemove', paint);
 
+canvas.addEventListener('touchstart', (e) => {
+    isPainting = true;
+    paint(e);
+}, { passive: false });
+
+window.addEventListener('touchend', () => isPainting = false);
+
+canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    paint(e);
+}, { passive: false });
+
 function paint(e) {
     if (!isPainting) return;
     const rect = canvas.getBoundingClientRect();
-    const x = Math.floor((e.clientX - rect.left) / SIZE);
-    const y = Math.floor((e.clientY - rect.top) / SIZE);
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    
+    // Account for CSS scaling of canvas
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const canvasX = (clientX - rect.left) * scaleX;
+    const canvasY = (clientY - rect.top) * scaleY;
+
+    const x = Math.floor(canvasX / SIZE);
+    const y = Math.floor(canvasY / SIZE);
     
     const brushSize = 2; // Brush radius
     for (let i = -brushSize; i <= brushSize; i++) {

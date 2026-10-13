@@ -6,29 +6,35 @@ body {
     background-color: #1a1a1a;
     color: white;
     margin: 0;
-    padding: 20px;
+    padding: 16px 10px;
+    box-sizing: border-box;
+    min-height: 100vh;
 }
 
 h1 {
-    margin: 10px 0 20px 0;
+    margin: 8px 0 16px 0;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 #controls {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 520px;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: 2px solid transparent;
     cursor: pointer;
     background-color: #333;
     color: white;
     border-radius: 6px;
     font-weight: bold;
+    font-size: 0.9rem;
     transition: all 0.2s;
 }
 
@@ -53,10 +59,12 @@ canvas {
     border: 2px solid #555;
     background-color: #000;
     cursor: crosshair;
-    border-radius: 4px;
-    max-width: 100%;
-    height: auto;
+    border-radius: 6px;
+    width: min(500px, 92vw);
+    height: min(500px, 92vw);
+    max-width: 92vw;
     touch-action: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
 }
 
 a {
@@ -64,8 +72,22 @@ a {
     text-decoration: none;
     align-self: flex-start;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px 8px;
+    }
+    h1 {
+        font-size: 1.25rem;
+    }
+    button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
 }

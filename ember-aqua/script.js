@@ -98,6 +98,26 @@ window.addEventListener("keyup", e => {
     keys[e.key] = false;
 });
 
+// Setup Virtual Touch Controls
+function setupTouchButton(id, keyName) {
+    const btn = document.getElementById(id);
+    if (!btn) return;
+    const start = (e) => { e.preventDefault(); keys[keyName] = true; };
+    const end = (e) => { e.preventDefault(); keys[keyName] = false; };
+    btn.addEventListener('touchstart', start, { passive: false });
+    btn.addEventListener('touchend', end, { passive: false });
+    btn.addEventListener('mousedown', start);
+    btn.addEventListener('mouseup', end);
+    btn.addEventListener('mouseleave', end);
+}
+
+setupTouchButton('btn-ember-left', 'a');
+setupTouchButton('btn-ember-right', 'd');
+setupTouchButton('btn-ember-up', 'w');
+setupTouchButton('btn-aqua-left', 'ArrowLeft');
+setupTouchButton('btn-aqua-right', 'ArrowRight');
+setupTouchButton('btn-aqua-up', 'ArrowUp');
+
 function checkCollision(r1, r2) {
     return r1.x < r2.x + r2.w &&
            r1.x + r1.w > r2.x &&

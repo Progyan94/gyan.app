@@ -113,3 +113,20 @@ h2 {
     margin-top: 10px;
     font-size: 1.2rem;
 }
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .back-link {
+        font-size: 0.8rem;
+    }
+    .controls button {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+    #terminal-container, #progress-container {
+        margin-top: 40px;
+        height: 86%;
+    }
+}

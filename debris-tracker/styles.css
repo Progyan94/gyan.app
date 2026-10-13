@@ -28,11 +28,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .radar {
-    width: 400px;
-    height: 400px;
+    width: min(400px, 88vw);
+    height: min(400px, 88vw);
     border: 2px solid #0f0;
     border-radius: 50%;
     position: relative;
@@ -107,7 +110,8 @@ body {
 }
 
 .info-panel {
-    width: 400px;
+    width: min(400px, 88vw);
+    box-sizing: border-box;
     border: 1px solid #0f0;
     padding: 10px;
     background-color: rgba(0, 26, 0, 0.8);
@@ -128,4 +132,15 @@ body {
 #debris-list li {
     padding: 5px 0;
     border-bottom: 1px dashed #0f0;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-top: 60px;
+    }
+    .back-link {
+        top: 12px;
+        left: 12px;
+        font-size: 0.8rem;
+    }
 }

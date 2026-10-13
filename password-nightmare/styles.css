@@ -103,3 +103,15 @@ h1 {
 }
 .valid .status-icon { color: #2ecc71; }
 .invalid .status-icon { color: #e74c3c; }
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+    .container {
+        padding: 1.2rem 1rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+}

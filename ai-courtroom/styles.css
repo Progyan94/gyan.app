@@ -100,3 +100,23 @@ button:hover {
 button:active {
     transform: translateY(0);
 }
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 16px 12px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .dialogue-box {
+        font-size: 1rem;
+        padding: 14px;
+    }
+    button {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+}

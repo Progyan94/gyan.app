@@ -129,3 +129,17 @@ p {
     box-shadow: 0 0px 0px rgba(0,0,0,0.2);
     filter: brightness(1.2);
 }
+
+@media (max-width: 600px) {
+    .container {
+        padding: 45px 14px 20px 14px;
+        width: 95%;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+}

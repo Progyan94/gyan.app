@@ -143,3 +143,16 @@ button {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px 10px;
+    }
+    .slot {
+        font-size: 1.05rem;
+    }
+    .action-btn {
+        padding: 10px 16px;
+        font-size: 0.95rem;
+    }
+}

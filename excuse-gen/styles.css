@@ -126,3 +126,21 @@ button {
 .toast.show {
     opacity: 1;
 }
+
+@media (max-width: 600px) {
+    .container {
+        padding: 50px 16px 24px 16px;
+        width: 95%;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+    #excuse-text {
+        font-size: 1.15rem;
+    }
+    .back-link {
+        top: 14px;
+        left: 14px;
+        font-size: 0.9rem;
+    }
+}

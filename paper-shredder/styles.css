@@ -21,7 +21,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 400px;
+    width: min(400px, 90vw);
+    box-sizing: border-box;
 }
 
 .paper-container {
@@ -60,7 +61,7 @@ textarea {
 }
 
 .shredder {
-    width: 450px;
+    width: min(450px, 94vw);
     height: 60px;
     background-color: #555;
     border-radius: 10px;
@@ -72,7 +73,7 @@ textarea {
 }
 
 .slot {
-    width: 400px;
+    width: min(400px, 86vw);
     height: 10px;
     background-color: #222;
     border-radius: 5px;
@@ -80,7 +81,7 @@ textarea {
 
 .shreds-container {
     display: flex;
-    width: 400px;
+    width: min(400px, 86vw);
     justify-content: space-between;
     margin-top: -10px;
     z-index: 1;
@@ -99,4 +100,15 @@ textarea {
 .paper-animating {
     transform: translateY(120px);
     opacity: 0;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-top: 60px;
+    }
+    .back-link {
+        top: 14px;
+        left: 14px;
+        font-size: 0.85rem;
+    }
 }

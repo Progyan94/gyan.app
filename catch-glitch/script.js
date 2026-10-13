@@ -34,7 +34,8 @@ function spawnGlitch() {
         glitch.style.top = `${currentY}px`;
     }, 400);
 
-    glitch.addEventListener('click', () => {
+    const catchGlitch = (e) => {
+        if (e.type === 'touchstart') e.preventDefault();
         clearInterval(moveInterval);
         score += 10;
         scoreElement.textContent = score;
@@ -48,7 +49,10 @@ function spawnGlitch() {
                 glitch.parentNode.removeChild(glitch);
             }
         }, 500);
-    });
+    };
+
+    glitch.addEventListener('click', catchGlitch);
+    glitch.addEventListener('touchstart', catchGlitch, { passive: false });
 
     gameArea.appendChild(glitch);
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ember & Aqua: Co-op Escape</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,11 +12,36 @@
         <h1>Ember & Aqua: Co-op Escape</h1>
         <p class="credit">Original concept "Fireboy & Watergirl" created by Oslo Albet</p>
         <div class="instructions">
-            <strong>Ember (Red):</strong> WASD to move & jump <br>
-            <strong>Aqua (Blue):</strong> Arrow Keys to move & jump <br>
-            <em>Work together to press buttons (green) and open gates (green) to reach your matching colored doors!</em>
+            <strong>Ember (Red):</strong> WASD (or Left Touch) <br>
+            <strong>Aqua (Blue):</strong> Arrow Keys (or Right Touch) <br>
+            <em>Work together to press buttons to open gates and reach matching doors!</em>
         </div>
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="canvas-wrap">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+        </div>
+
+        <!-- On-Screen Virtual Touch Controls for Mobile -->
+        <div class="touch-controls-bar">
+            <!-- Ember (Red) Controls -->
+            <div class="touch-pad ember-pad">
+                <span class="pad-label">🔥 Ember (WASD)</span>
+                <div class="dpad-buttons">
+                    <button class="t-btn" id="btn-ember-left">◀</button>
+                    <button class="t-btn jump-btn" id="btn-ember-up">▲ JUMP</button>
+                    <button class="t-btn" id="btn-ember-right">▶</button>
+                </div>
+            </div>
+
+            <!-- Aqua (Blue) Controls -->
+            <div class="touch-pad aqua-pad">
+                <span class="pad-label">💧 Aqua (Arrows)</span>
+                <div class="dpad-buttons">
+                    <button class="t-btn" id="btn-aqua-left">◀</button>
+                    <button class="t-btn jump-btn" id="btn-aqua-up">▲ JUMP</button>
+                    <button class="t-btn" id="btn-aqua-right">▶</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
