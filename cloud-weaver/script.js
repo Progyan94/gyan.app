@@ -112,6 +112,40 @@ canvas.addEventListener('mouseup', e => {
     dragCount = 0;
 });
 
+canvas.addEventListener('touchstart', e => {
+    isDragging = true;
+    const t = e.touches[0];
+    mouseX = t.clientX;
+    mouseY = t.clientY;
+    e.preventDefault();
+}, { passive: false });
+
+canvas.addEventListener('touchmove', e => {
+    if (isDragging) {
+        const t = e.touches[0];
+        mouseX = t.clientX;
+        mouseY = t.clientY;
+        dragCount++;
+    }
+    e.preventDefault();
+}, { passive: false });
+
+canvas.addEventListener('touchend', e => {
+    isDragging = false;
+    if (dragCount > 5) {
+        particles.forEach(p => {
+            const dx = mouseX - p.x;
+            const dy = mouseY - p.y;
+            if (Math.sqrt(dx*dx + dy*dy) < 200 && !p.isRaining) {
+                p.isRaining = true;
+                p.vy = Math.random() * 2;
+                p.vx = 0;
+            }
+        });
+    }
+    dragCount = 0;
+});
+
 function loop() {
     ctx.clearRect(0, 0, width, height);
     

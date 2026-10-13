@@ -96,6 +96,20 @@ canvas.addEventListener('mousedown', (e) => {
     spray(e);
 });
 
+canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    spray({ clientX: touch.clientX, clientY: touch.clientY });
+}, { passive: false });
+
+canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    if (Math.random() > 0.7) {
+        const touch = e.touches[0];
+        spray({ clientX: touch.clientX, clientY: touch.clientY });
+    }
+}, { passive: false });
+
 clearBtn.addEventListener('click', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });

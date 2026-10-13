@@ -5,10 +5,10 @@
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-gyanfun.vercel.app-ff007f?style=for-the-badge&logo=vercel)](https://gyanfun.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/GyanXD25/gyan.app?style=for-the-badge&color=gold)](https://github.com/GyanXD25/gyan.app)
+[![GitHub Stars](https://img.shields.io/github/stars/Progyan94/gyan.app?style=for-the-badge&color=gold)](https://github.com/Progyan94/gyan.app)
 [![Built for Web, Android & Desktop](https://img.shields.io/badge/Platforms-Web%20|%20Android%20|%20Windows%20|%20macOS%20|%20Linux-blue?style=for-the-badge)](#-multi-platform-apps)
 
-**[👉 Launch Live Web Portal](https://gyanfun.vercel.app)** • **[⭐ Star on GitHub](https://github.com/GyanXD25/gyan.app)** • **[💡 Submit an Idea](CONTRIBUTING.md)**
+**[👉 Launch Live Web Portal](https://gyanfun.vercel.app)** • **[⭐ Star on GitHub](https://github.com/Progyan94/gyan.app)** • **[💡 Submit an Idea](CONTRIBUTING.md)**
 
 ---
 
@@ -76,7 +76,7 @@ Great web toys stand on the shoulders of internet legends:
 
 Have an absurd game idea? Want to see a specific simulation added?
 
-1. **[Open an Issue or Suggestion](https://github.com/GyanXD25/gyan.app/issues)** with your wildest concepts.
+1. **[Open an Issue or Suggestion](https://github.com/Progyan94/gyan.app/issues)** with your wildest concepts.
 2. Read the **[Contributing Guide (CONTRIBUTING.md)](CONTRIBUTING.md)** to see how you can add your own game in just 3 steps!
 3. If this project made you smile, laugh, or procrastinate, **please drop a ⭐ Star on the repository**! It means the world!
 

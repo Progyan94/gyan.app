@@ -131,6 +131,36 @@ canvas.addEventListener('mouseup', e => {
     }
 });
 
+canvas.addEventListener('touchstart', e => {
+    const t = e.touches[0];
+    pebble.isDragging = true;
+    pebble.x = t.clientX;
+    pebble.y = t.clientY;
+    dragStart = {x: t.clientX, y: t.clientY};
+    e.preventDefault();
+}, { passive: false });
+
+canvas.addEventListener('touchmove', e => {
+    if (pebble.isDragging) {
+        const t = e.touches[0];
+        pebble.x = t.clientX;
+        pebble.y = t.clientY;
+    }
+    e.preventDefault();
+}, { passive: false });
+
+canvas.addEventListener('touchend', e => {
+    if (pebble.isDragging) {
+        pebble.isDragging = false;
+        pebble.vx = (pebble.x - dragStart.x) * 0.15;
+        pebble.vy = (pebble.y - dragStart.y) * 0.15;
+        if (Math.abs(pebble.vx) < 1 && Math.abs(pebble.vy) < 1) {
+            pebble.vx = 15;
+            pebble.vy = -5;
+        }
+    }
+});
+
 function loop() {
     ctx.clearRect(0, 0, width, height);
     

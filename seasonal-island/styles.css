@@ -102,9 +102,24 @@ button.active {
     border-radius: 8px;
     overflow: hidden;
     line-height: 0;
+    max-width: 100%;
 }
 
 canvas {
     background: #000;
     cursor: crosshair;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .tools, .seasons {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
 }

@@ -17,14 +17,21 @@
   }
   header { margin: 20px 0; text-align: center; }
   a { color: #a8d5ba; text-decoration: none; }
+  .grid-container {
+    max-width: calc(100vw - 20px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 5px;
+    margin-top: 10px;
+  }
   .grid {
     display: grid;
     grid-template-columns: repeat(16, 30px);
     gap: 2px;
-    margin-top: 20px;
     background: rgba(0,0,0,0.2);
     padding: 10px;
     border-radius: 8px;
+    width: fit-content;
   }
   .cell {
     width: 30px;
@@ -47,6 +54,29 @@
   .type-btn { padding: 8px 15px; cursor: pointer; border: 2px solid transparent; background: #3f4a34; color: white; border-radius: 4px; font-size: 14px; user-select: none;}
   .type-btn:hover { background: #4f5f42; }
   .type-btn.selected { border-color: #a8d5ba; background: #2a3321; }
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.3rem; margin: 5px 0; }
+    header { margin: 10px 0; }
+    .grid {
+      grid-template-columns: repeat(16, 22px);
+      gap: 2px;
+      padding: 6px;
+    }
+    .cell {
+      width: 22px;
+      height: 22px;
+      font-size: 14px;
+    }
+    .type-selector {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+    }
+    .type-btn {
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -62,7 +92,9 @@
   <div class="type-btn" data-type="firefly">✨ Firefly (Chime)</div>
   <div class="type-btn" data-type="empty">🧹 Clear</div>
 </div>
-<div class="grid" id="grid"></div>
+<div class="grid-container">
+  <div class="grid" id="grid"></div>
+</div>
 
 <script>
   const COLS = 16;

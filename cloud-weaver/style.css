@@ -32,3 +32,14 @@ body, html {
     z-index: 10;
     pointer-events: none;
 }
+
+@media (max-width: 600px) {
+    .instructions {
+        top: auto;
+        bottom: 20px;
+        right: 15px;
+        left: 15px;
+        text-align: center;
+        font-size: 0.85rem;
+    }
+}

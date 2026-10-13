@@ -386,6 +386,18 @@ body {
 }
 
 @media (max-width: 650px) {
+    body {
+        padding: 12px 6px;
+    }
+    .comic-container {
+        padding: 16px 12px;
+        box-shadow: 5px 5px 0px #1a1a1a;
+    }
+    .stamp-badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 8px;
+    }
     .dilemma-grid {
         grid-template-columns: 1fr;
     }
@@ -393,6 +405,10 @@ body {
         margin: -4px auto;
     }
     .comic-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
+    }
+    #comic-canvas {
+        max-width: 100%;
+        height: auto;
     }
 }

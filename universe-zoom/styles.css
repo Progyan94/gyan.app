@@ -417,3 +417,80 @@ body, html {
         display: none;
     }
 }
+
+@media (max-width: 768px) {
+    .hud-header {
+        padding: 8px 12px;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .hud-left {
+        gap: 8px;
+    }
+    .nav-back-btn {
+        padding: 5px 8px;
+        font-size: 0.7rem;
+    }
+    .title-group h1 {
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+    }
+    .project-tag {
+        display: none;
+    }
+    .hud-controls {
+        gap: 4px;
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 2px;
+    }
+    .mode-toggle-group {
+        padding: 2px;
+        gap: 2px;
+    }
+    .toggle-label {
+        display: none;
+    }
+    .mode-btn {
+        padding: 5px 8px;
+        font-size: 0.65rem;
+    }
+
+    /* Lower HUD Deck on mobile */
+    .hud-deck {
+        padding: 8px 12px;
+        max-height: 42vh;
+        gap: 8px;
+    }
+    .info-pod {
+        padding: 10px;
+    }
+    .target-name {
+        font-size: 1.1rem;
+    }
+    .target-desc {
+        font-size: 0.8rem;
+        margin-bottom: 6px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .meta-tags {
+        display: none;
+    }
+    .slider-legend {
+        overflow-x: auto;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        padding-bottom: 2px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .preset-btn {
+        padding: 3px 6px;
+        font-size: 0.6rem;
+        flex-shrink: 0;
+    }
+}

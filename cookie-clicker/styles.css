@@ -22,8 +22,10 @@ body {
 }
 .container {
     display: flex;
-    width: 1200px;
-    height: 800px;
+    max-width: 1200px;
+    width: 100%;
+    min-height: 750px;
+    height: auto;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 10px;
@@ -163,4 +165,25 @@ body.flash {
     margin-top: 20px;
     padding: 10px 20px;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 60px 10px 20px 10px;
+    }
+    .container {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .left-panel, .middle-panel, .right-panel {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #e0d6c2;
+    }
+    .cookie {
+        width: 160px;
+        height: 160px;
+    }
 }

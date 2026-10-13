@@ -143,10 +143,12 @@ body, html {
 
 /* MAIN PERIODIC TABLE GRID */
 .table-container {
-    padding: 24px;
+    padding: 16px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
 }
 
 .periodic-grid {
@@ -471,7 +473,90 @@ body, html {
 
 @media (max-width: 1200px) {
     .periodic-grid {
-        grid-template-columns: repeat(18, 52px);
-        grid-template-rows: repeat(10, 56px);
+        grid-template-columns: repeat(18, 50px);
+        grid-template-rows: repeat(7, 54px) 14px repeat(2, 54px);
+    }
+}
+
+@media (max-width: 768px) {
+    .lab-header {
+        padding: 10px 14px;
+        gap: 8px;
+    }
+    .brand-text h1 {
+        font-size: 1rem;
+    }
+    .sub-brand {
+        display: none;
+    }
+    .neon-legend {
+        gap: 4px;
+    }
+    .legend-chip {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+    }
+    .table-container {
+        padding: 8px;
+    }
+    .periodic-grid {
+        grid-template-columns: repeat(18, 44px);
+        grid-template-rows: repeat(7, 48px) 10px repeat(2, 48px);
+        gap: 3px;
+        padding: 6px;
+    }
+    .tile-symbol {
+        font-size: 0.9rem;
+    }
+    .tile-number {
+        font-size: 0.55rem;
+    }
+    .tile-name {
+        display: none;
+    }
+    .tile-mass {
+        display: none;
+    }
+
+    /* Modal / Inspector Drawer on Mobile */
+    .atomic-modal {
+        width: 100vw;
+        max-width: 100vw;
+    }
+    .modal-top-bar {
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .element-big-name {
+        font-size: 1.1rem;
+    }
+    .element-big-symbol {
+        font-size: 1.2rem;
+    }
+    .sim-viewport-wrapper {
+        min-height: 240px;
+    }
+    .particle-strip {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        padding: 10px 12px;
+    }
+    .p-card {
+        padding: 6px;
+        gap: 6px;
+    }
+    .p-icon {
+        font-size: 1rem;
+    }
+    .p-count {
+        font-size: 1rem;
+    }
+    .p-title {
+        font-size: 0.55rem;
+    }
+    .element-quirk-box {
+        font-size: 0.8rem;
+        padding: 8px 10px;
     }
 }

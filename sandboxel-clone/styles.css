@@ -54,6 +54,9 @@ canvas {
     background-color: #000;
     cursor: crosshair;
     border-radius: 4px;
+    max-width: 100%;
+    height: auto;
+    touch-action: none;
 }
 
 a {

@@ -328,10 +328,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initUI();
     initThreeJS();
     init2DOrrery();
-    setupEventListeners();
     setupSearch();
-    selectTarget(CELESTIAL_DATA[0]); // Select Sun by default
+    selectTarget(CELESTIAL_DATA[0], false); // Select Sun by default without popping up card
     animateLoop();
+
+    // Ensure non-zero layout dimensions across all mobile & desktop viewports
+    setTimeout(() => {
+        onWindowResize();
+        resize2D();
+    }, 150);
 });
 
 // -------------------------------------------------------------
@@ -389,7 +394,15 @@ function initUI() {
         zoom2D = 1.0;
     });
 
-    // Info card close
+    // Info card toggle & close
+    const toggleInfoBtn = document.getElementById('toggleInfoBtn');
+    if (toggleInfoBtn) {
+        toggleInfoBtn.addEventListener('click', () => {
+            const card = document.getElementById('celestial-card');
+            card.classList.toggle('hidden');
+        });
+    }
+
     document.getElementById('closeCardBtn').addEventListener('click', () => {
         document.getElementById('celestial-card').classList.add('hidden');
         document.getElementById('selection-reticle').classList.add('hidden');
@@ -549,6 +562,9 @@ function initThreeJS() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.2;
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
+    renderer.domElement.style.display = 'block';
     container.appendChild(renderer.domElement);
 
     raycaster = new THREE.Raycaster();
@@ -976,7 +992,7 @@ function getCelestialCoords(data) {
 // -------------------------------------------------------------
 // 9. TARGET SELECTION & METRICS CARD
 // -------------------------------------------------------------
-function selectTarget(data) {
+function selectTarget(data, openCard = true) {
     selectedTarget = data;
 
     // Fill UI Info Card
@@ -992,7 +1008,9 @@ function selectTarget(data) {
     document.getElementById('cardMoons').textContent = data.moons;
     document.getElementById('cardDesc').textContent = data.desc;
 
-    document.getElementById('celestial-card').classList.remove('hidden');
+    if (openCard) {
+        document.getElementById('celestial-card').classList.remove('hidden');
+    }
 
     // Update Reticle Label
     const reticle = document.getElementById('selection-reticle');

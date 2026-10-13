@@ -164,30 +164,59 @@ function draw() {
     ctx.fill();
 }
 
-window.addEventListener('keydown', (e) => {
+function movePlayer(dir) {
     let currentCell = grid[index(player.x, player.y)];
     let moved = false;
     
-    if ((e.key === 'ArrowUp' || e.key === 'w') && !currentCell.walls[0]) {
+    if (dir === 'up' && !currentCell.walls[0]) {
         player.y--;
         moved = true;
-    } else if ((e.key === 'ArrowRight' || e.key === 'd') && !currentCell.walls[1]) {
+    } else if (dir === 'right' && !currentCell.walls[1]) {
         player.x++;
         moved = true;
-    } else if ((e.key === 'ArrowDown' || e.key === 's') && !currentCell.walls[2]) {
+    } else if (dir === 'down' && !currentCell.walls[2]) {
         player.y++;
         moved = true;
-    } else if ((e.key === 'ArrowLeft' || e.key === 'a') && !currentCell.walls[3]) {
+    } else if (dir === 'left' && !currentCell.walls[3]) {
         player.x--;
         moved = true;
     }
     
     if (moved) {
-        e.preventDefault();
         draw();
         checkWin();
     }
+}
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowUp' || e.key === 'w') { e.preventDefault(); movePlayer('up'); }
+    else if (e.key === 'ArrowRight' || e.key === 'd') { e.preventDefault(); movePlayer('right'); }
+    else if (e.key === 'ArrowDown' || e.key === 's') { e.preventDefault(); movePlayer('down'); }
+    else if (e.key === 'ArrowLeft' || e.key === 'a') { e.preventDefault(); movePlayer('left'); }
 });
+
+let touchStartX = 0, touchStartY = 0;
+canvas.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    e.preventDefault();
+}, { passive: false });
+
+canvas.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const dx = touchEndX - touchStartX;
+    const dy = touchEndY - touchStartY;
+    
+    if (Math.abs(dx) > 15 || Math.abs(dy) > 15) {
+        if (Math.abs(dx) > Math.abs(dy)) {
+            movePlayer(dx > 0 ? 'right' : 'left');
+        } else {
+            movePlayer(dy > 0 ? 'down' : 'up');
+        }
+    }
+    e.preventDefault();
+}, { passive: false });
 
 function checkWin() {
     if (player.x === exit.x && player.y === exit.y) {

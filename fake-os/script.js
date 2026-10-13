@@ -264,51 +264,67 @@ function GyanXDI() {
 }
 
 function Window({ id, title, initialX, initialY, onClose, children }) {
-    const [pos, setPos] = useState({ x: initialX, y: initialY });
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 500;
+    const winWidth = isMobile ? Math.min(window.innerWidth - 20, 360) : 450;
+    const winHeight = isMobile ? Math.min(window.innerHeight - 130, 380) : 350;
+    const initX = isMobile ? 10 : Math.min(initialX, window.innerWidth - winWidth - 10);
+    const initY = isMobile ? 20 : Math.min(initialY, window.innerHeight - winHeight - 70);
+
+    const [pos, setPos] = useState({ x: Math.max(5, initX), y: Math.max(5, initY) });
     const [isDragging, setIsDragging] = useState(false);
     const dragStart = useRef({ x: 0, y: 0 });
 
-    const handleMouseDown = (e) => {
+    const handleStart = (e) => {
         setIsDragging(true);
-        dragStart.current = { x: e.clientX - pos.x, y: e.clientY - pos.y };
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        dragStart.current = { x: clientX - pos.x, y: clientY - pos.y };
     };
 
-    const handleMouseMove = (e) => {
+    const handleMove = (e) => {
         if (!isDragging) return;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
         setPos({
-            x: e.clientX - dragStart.current.x,
-            y: e.clientY - dragStart.current.y
+            x: Math.max(0, Math.min(window.innerWidth - 60, clientX - dragStart.current.x)),
+            y: Math.max(0, Math.min(window.innerHeight - 60, clientY - dragStart.current.y))
         });
     };
 
-    const handleMouseUp = () => {
+    const handleEnd = () => {
         setIsDragging(false);
     };
 
     useEffect(() => {
         if (isDragging) {
-            document.addEventListener('mousemove', handleMouseMove);
-            document.addEventListener('mouseup', handleMouseUp);
+            document.addEventListener('mousemove', handleMove);
+            document.addEventListener('mouseup', handleEnd);
+            document.addEventListener('touchmove', handleMove, { passive: false });
+            document.addEventListener('touchend', handleEnd);
         } else {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseup', handleMouseUp);
+            document.removeEventListener('mousemove', handleMove);
+            document.removeEventListener('mouseup', handleEnd);
+            document.removeEventListener('touchmove', handleMove);
+            document.removeEventListener('touchend', handleEnd);
         }
         return () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseup', handleMouseUp);
+            document.removeEventListener('mousemove', handleMove);
+            document.removeEventListener('mouseup', handleEnd);
+            document.removeEventListener('touchmove', handleMove);
+            document.removeEventListener('touchend', handleEnd);
         };
     }, [isDragging]);
 
     return (
         <div 
             className="glass os-window" 
-            style={{ left: pos.x, top: pos.y, width: 450, height: 350, zIndex: isDragging ? 100 : 10 }}
+            style={{ left: pos.x, top: pos.y, width: winWidth, height: winHeight, maxWidth: 'calc(100vw - 10px)', zIndex: isDragging ? 100 : 10 }}
         >
-            <div className="title-bar" onMouseDown={handleMouseDown}>
+            <div className="title-bar" onMouseDown={handleStart} onTouchStart={handleStart}>
                 <span>{title}</span>
                 <div className="close-btn" onClick={() => onClose(id)}></div>
             </div>
-            <div className="window-content">
+            <div className="window-content" style={{ overflow: 'auto' }}>
                 {children}
             </div>
         </div>
@@ -321,7 +337,10 @@ function App() {
 
     const openApp = (type) => {
         const id = Date.now();
-        setWindows([...windows, { id, type, x: 150 + windows.length * 40, y: 150 + windows.length * 40 }]);
+        const isMobile = window.innerWidth < 500;
+        const startX = isMobile ? 10 : (80 + (windows.length % 5) * 30);
+        const startY = isMobile ? 15 : (60 + (windows.length % 5) * 30);
+        setWindows([...windows, { id, type, x: startX, y: startY }]);
         setStartOpen(false);
     };
 

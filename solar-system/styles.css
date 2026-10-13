@@ -600,22 +600,95 @@ body, html {
 @media (max-width: 768px) {
     .hud-top {
         height: auto;
-        padding: 8px 12px;
+        padding: 6px 10px;
         flex-wrap: wrap;
+        gap: 6px;
+    }
+    .hud-left {
         gap: 8px;
+    }
+    .hub-back-btn {
+        padding: 4px 8px;
+        font-size: 0.65rem;
+    }
+    .logo-text {
+        font-size: 0.9rem;
+    }
+    .sub-label {
+        display: none;
+    }
+    .hud-right {
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+    .hud-btn {
+        padding: 4px 8px;
+        font-size: 0.65rem;
     }
     .hud-center {
         order: 3;
         width: 100%;
         max-width: 100%;
-        margin: 0;
+        margin: 4px 0 0 0;
     }
+    .search-box input {
+        padding: 6px 10px 6px 30px;
+        font-size: 0.85rem;
+    }
+
+    /* Info Card on Mobile - Modern Non-Obstructive Bottom Sheet */
     .info-card {
-        width: calc(100vw - 24px);
-        right: 12px;
-        top: 130px;
+        width: calc(100vw - 16px);
+        max-width: 440px;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%);
+        top: auto !important;
+        bottom: 90px;
+        max-height: 48vh;
+        padding: 14px;
+        border-radius: 12px;
+        box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.3);
+        z-index: 150;
+    }
+    .card-name {
+        font-size: 1.25rem;
+    }
+    .stat-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+    .stat-val {
+        font-size: 0.85rem;
+    }
+
+    /* Bottom HUD on Mobile */
+    .hud-bottom {
+        padding: 6px 8px;
+        gap: 4px;
     }
     .timeline-bar {
         justify-content: center;
+        gap: 6px;
+    }
+    .date-string {
+        font-size: 0.75rem;
+    }
+    .time-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    .speed-slider-box {
+        width: 110px;
+    }
+    .quick-jump-dock {
+        justify-content: flex-start;
+        padding: 4px 0;
+        -webkit-overflow-scrolling: touch;
+    }
+    .jump-btn {
+        padding: 3px 8px;
+        font-size: 0.75rem;
     }
 }

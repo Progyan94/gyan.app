@@ -6,7 +6,7 @@ First off, thank you for considering contributing! Whether you are submitting a 
 
 ## 💡 Got a Crazy Idea?
 We love hearing absurd, funny, zen, or creative concepts!
-- Have an idea for a web toy, troll game, or cosmic simulator? Open a **[GitHub Discussion](https://github.com/GyanXD25/gyan.app/discussions)** or file an **[Issue](https://github.com/GyanXD25/gyan.app/issues)** with the tag `[Idea]`.
+- Have an idea for a web toy, troll game, or cosmic simulator? Open a **[GitHub Discussion](https://github.com/Progyan94/gyan.app/discussions)** or file an **[Issue](https://github.com/Progyan94/gyan.app/issues)** with the tag `[Idea]`.
 - Don't forget to **⭐ Star this repository** if you enjoy the chaos!
 
 ---
