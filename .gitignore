@@ -1,5 +1,6 @@
 .vercel
 node_modules
+dist/
 android/
 ios/
 src-tauri/target/

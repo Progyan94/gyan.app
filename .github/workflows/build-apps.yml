@@ -32,10 +32,20 @@ jobs:
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools build-tools;34.0.0 platforms;android-34'
+
+      - name: Accept Android SDK licenses
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses || true
 
       - name: Install dependencies
         run: |
           npm install
+
+      - name: Build web assets
+        run: |
+          npm run build
 
       - name: Initialize & Sync Capacitor Android
         run: |
@@ -53,6 +63,7 @@ jobs:
         with:
           name: gyan-wacky-world-android-apk
           path: android/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: warn
 
   # -------------------------------------------------------------
   # 2. BUILD DESKTOP APPS (TAURI: WINDOWS, MACOS, LINUX)
@@ -87,18 +98,21 @@ jobs:
         if: matrix.platform == 'ubuntu-22.04'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf build-essential curl wget file libssl-dev libgtk-3-dev libayatana-appindicator3-dev
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf build-essential curl wget file libssl-dev libgtk-3-dev libxdo-dev
 
       - name: Install Node dependencies
         run: npm install
+
+      - name: Build Web Assets
+        run: npm run build
 
       - name: Build Tauri Application
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: v1.0.0
-          releaseName: 'Gyan Wacky World v1.0.0'
+          tagName: app-v1.0.${{ github.run_number }}
+          releaseName: 'Gyan Wacky World v1.0.${{ github.run_number }}'
           releaseBody: 'Automated multi-platform builds for Android, Windows, macOS, and Linux.'
           releaseDraft: false
           prerelease: false
@@ -109,3 +123,4 @@ jobs:
           name: gyan-desktop-${{ matrix.target }}
           path: |
             src-tauri/target/release/bundle/**/*
+          if-no-files-found: warn

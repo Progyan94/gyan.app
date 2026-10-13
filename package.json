@@ -4,10 +4,11 @@
   "description": "Gyan's Wacky Web World - 45+ Mini-Games & Solar System Scope",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve .",
-    "cap:sync": "npx cap sync",
-    "cap:android": "npx cap open android",
-    "cap:ios": "npx cap open ios",
+    "build": "node build.js",
+    "start": "npx serve dist",
+    "cap:sync": "npm run build && npx cap sync",
+    "cap:android": "npm run build && npx cap open android",
+    "cap:ios": "npm run build && npx cap open ios",
     "tauri:dev": "cargo tauri dev",
     "tauri:build": "cargo tauri build"
   },

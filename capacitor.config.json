@@ -1,7 +1,7 @@
 {
   "appId": "com.gyanxd25.wackyworld",
   "appName": "Gyan's Wacky World",
-  "webDir": ".",
+  "webDir": "dist",
   "bundledWebRuntime": false,
   "server": {
     "androidScheme": "https"
